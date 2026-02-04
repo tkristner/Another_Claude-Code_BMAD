@@ -15,7 +15,7 @@ NC='\033[0m' # No Color
 PROJECT_NAME=""
 PROJECT_TYPE=""
 PROJECT_LEVEL=""
-OUTPUT_FOLDER="docs"
+BMAD_FOLDER="accbmad"
 SKILL_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 # Parse command line arguments
@@ -34,7 +34,8 @@ while [[ $# -gt 0 ]]; do
       shift 2
       ;;
     --output)
-      OUTPUT_FOLDER="$2"
+      # Deprecated - kept for backwards compatibility
+      echo -e "${YELLOW}Warning: --output is deprecated. All BMAD files go to accbmad/${NC}"
       shift 2
       ;;
     -h|--help)
@@ -104,8 +105,10 @@ echo ""
 # Create directory structure
 echo -e "${BLUE}Creating directory structure...${NC}"
 
-mkdir -p bmad/agent-overrides
-mkdir -p "${OUTPUT_FOLDER}/stories"
+mkdir -p "${BMAD_FOLDER}/1-analysis"
+mkdir -p "${BMAD_FOLDER}/2-planning"
+mkdir -p "${BMAD_FOLDER}/3-solutioning"
+mkdir -p "${BMAD_FOLDER}/4-implementation/stories"
 mkdir -p .claude/commands/accbmad
 
 echo -e "${GREEN}✓ Directories created${NC}"
@@ -159,8 +162,7 @@ bmad_version: "6.0.0"
 project_name: "${PROJECT_NAME}"
 project_type: "${PROJECT_TYPE}"
 project_level: ${PROJECT_LEVEL}
-output_folder: "${OUTPUT_FOLDER}"
-stories_folder: "${OUTPUT_FOLDER}/stories"
+stories_folder: "accbmad/4-implementation/stories"
 communication_language: "English"
 document_output_language: "English"
 EOF
@@ -172,7 +174,7 @@ echo -e "${GREEN}✓ Created: ${CONFIG_OUTPUT}${NC}"
 echo -e "${BLUE}Creating workflow status file...${NC}"
 
 STATUS_TEMPLATE="${SKILL_PATH}/templates/workflow-status.template.yaml"
-STATUS_OUTPUT="${OUTPUT_FOLDER}/bmm-workflow-status.yaml"
+STATUS_OUTPUT="${BMAD_FOLDER}/status.yaml"
 
 if [ -f "$STATUS_TEMPLATE" ]; then
   # Use template if available

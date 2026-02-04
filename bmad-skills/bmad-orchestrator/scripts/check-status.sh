@@ -23,14 +23,8 @@ if [ ! -f "$CONFIG_FILE" ]; then
   exit 1
 fi
 
-# Read output folder from config if available
-if command -v yq &> /dev/null; then
-  OUTPUT_FOLDER=$(yq eval '.output_folder' "$CONFIG_FILE" 2>/dev/null || echo "docs")
-  STATUS_FILE="${OUTPUT_FOLDER}/bmm-workflow-status.yaml"
-elif grep -q "output_folder:" "$CONFIG_FILE"; then
-  OUTPUT_FOLDER=$(grep "output_folder:" "$CONFIG_FILE" | sed 's/.*: *"\?\([^"]*\)"\?/\1/' | tr -d '"')
-  STATUS_FILE="${OUTPUT_FOLDER}/bmm-workflow-status.yaml"
-fi
+# Status file is always in accbmad/status.yaml with new structure
+# No need to read output_folder - structure is fixed
 
 # Check if status file exists
 if [ ! -f "$STATUS_FILE" ]; then

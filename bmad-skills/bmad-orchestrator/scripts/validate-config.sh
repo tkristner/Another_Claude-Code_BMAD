@@ -206,15 +206,15 @@ if [ "$CONFIG_TYPE" = "project" ]; then
     fi
   fi
 
-  # Check if bmad folder exists
-  if [ -d "bmad" ]; then
-    success "BMAD config folder exists: bmad/"
+  # Check if accbmad folder exists
+  if [ -d "accbmad" ]; then
+    success "BMAD folder exists: accbmad/"
   else
-    warning "BMAD config folder does not exist: bmad/"
+    warning "BMAD folder does not exist: accbmad/"
   fi
 
   # Check for workflow status file
-  STATUS_FILE="${OUTPUT_FOLDER:-docs}/bmm-workflow-status.yaml"
+  STATUS_FILE="accbmad/status.yaml"
   if [ -f "$STATUS_FILE" ]; then
     success "Workflow status file exists: ${STATUS_FILE}"
   else
