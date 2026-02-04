@@ -18,22 +18,8 @@ NC='\033[0m' # No Color
 
 # Installation paths
 CLAUDE_DIR="${HOME}/.claude"
-SKILLS_DIR="${CLAUDE_DIR}/skills"
+SKILLS_DIR="${CLAUDE_DIR}/skills/accbmad"
 COMMANDS_DIR="${CLAUDE_DIR}/commands/accbmad"
-
-# Skills to remove
-BMAD_SKILLS=(
-    "bmad-orchestrator"
-    "business-analyst"
-    "product-manager"
-    "system-architect"
-    "scrum-master"
-    "developer"
-    "ux-designer"
-    "creative-intelligence"
-    "builder"
-    "tech-writer"
-)
 
 ###############################################################################
 # Logging
@@ -70,15 +56,12 @@ log_header() {
 check_installation() {
     local found=0
 
-    # Check for skills
-    for skill in "${BMAD_SKILLS[@]}"; do
-        if [[ -d "${SKILLS_DIR}/${skill}" ]]; then
-            found=1
-            break
-        fi
-    done
+    # Check for skills folder
+    if [[ -d "${SKILLS_DIR}" ]]; then
+        found=1
+    fi
 
-    # Check for commands
+    # Check for commands folder
     if [[ -d "${COMMANDS_DIR}" ]]; then
         found=1
     fi
@@ -101,22 +84,14 @@ check_installation() {
 remove_skills() {
     log_info "Removing BMAD skills..."
 
-    local removed=0
-    local skipped=0
-
-    for skill in "${BMAD_SKILLS[@]}"; do
-        local skill_path="${SKILLS_DIR}/${skill}"
-        if [[ -d "${skill_path}" ]]; then
-            rm -rf "${skill_path}"
-            log_success "Removed: ${skill}"
-            ((removed++))
-        else
-            ((skipped++))
-        fi
-    done
-
-    echo ""
-    log_info "Skills removed: ${removed}, not found: ${skipped}"
+    if [[ -d "${SKILLS_DIR}" ]]; then
+        local count=$(find "${SKILLS_DIR}" -maxdepth 1 -type d | wc -l)
+        count=$((count - 1))  # Exclude parent directory
+        rm -rf "${SKILLS_DIR}"
+        log_success "Removed ${count} skill directories from ${SKILLS_DIR}"
+    else
+        log_warning "Skills directory not found: ${SKILLS_DIR}"
+    fi
 }
 
 remove_commands() {
@@ -129,27 +104,6 @@ remove_commands() {
     else
         log_warning "Commands directory not found: ${COMMANDS_DIR}"
     fi
-}
-
-remove_shared_files() {
-    log_info "Removing shared BMAD files..."
-
-    # Remove BMAD-GUIDE.md (installed from CLAUDE.md)
-    local guide_md="${SKILLS_DIR}/BMAD-GUIDE.md"
-    if [[ -f "${guide_md}" ]]; then
-        rm -f "${guide_md}"
-        log_success "Removed: BMAD-GUIDE.md"
-    fi
-
-    # Remove BMAD-SUBAGENT-PATTERNS.md (installed from SUBAGENT-PATTERNS.md)
-    local subagent_md="${SKILLS_DIR}/BMAD-SUBAGENT-PATTERNS.md"
-    if [[ -f "${subagent_md}" ]]; then
-        rm -f "${subagent_md}"
-        log_success "Removed: BMAD-SUBAGENT-PATTERNS.md"
-    fi
-
-    # Note: TEMPLATE-GUIDELINES.md and shared/ are NOT installed by install script
-    # They remain in the source repo only
 }
 
 ###############################################################################
@@ -263,20 +217,13 @@ main() {
     echo "This will remove:"
     echo ""
     if [[ "$keep_skills" != true ]]; then
-        echo "  📦 BMAD Skills from: ${SKILLS_DIR}/"
-        for skill in "${BMAD_SKILLS[@]}"; do
-            if [[ -d "${SKILLS_DIR}/${skill}" ]]; then
-                echo "     - ${skill}"
-            fi
-        done
+        echo "  📦 BMAD Skills: ${SKILLS_DIR}/"
     fi
     if [[ "$keep_commands" != true ]]; then
-        echo ""
-        echo "  📋 Workflow commands from: ${COMMANDS_DIR}/"
+        echo "  📋 Workflow commands: ${COMMANDS_DIR}/"
     fi
     if [[ -n "$project_path" ]]; then
-        echo ""
-        echo "  🗂️  Project BMAD files in: ${project_path}/"
+        echo "  🗂️  Project BMAD files: ${project_path}/"
     fi
     echo ""
 
@@ -295,7 +242,6 @@ main() {
     # Perform uninstall
     if [[ "$keep_skills" != true ]]; then
         remove_skills
-        remove_shared_files
     fi
 
     if [[ "$keep_commands" != true ]]; then

@@ -13,7 +13,7 @@ set -euo pipefail
 # Configuration
 BMAD_VERSION="1.3.0"
 CLAUDE_DIR="${HOME}/.claude"
-SKILLS_DIR="${CLAUDE_DIR}/skills"
+SKILLS_DIR="${CLAUDE_DIR}/skills/accbmad"
 COMMANDS_DIR="${CLAUDE_DIR}/commands/accbmad"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SOURCE_DIR="${SCRIPT_DIR}/bmad-skills"
@@ -80,7 +80,7 @@ check_source() {
 }
 
 check_existing_installation() {
-    if [ -d "${SKILLS_DIR}/bmad" ] || [ -d "${COMMANDS_DIR}" ]; then
+    if [ -d "${SKILLS_DIR}" ] || [ -d "${COMMANDS_DIR}" ]; then
         log_warning "Existing BMAD installation detected."
         read -p "Do you want to backup and replace it? [y/N] " -n 1 -r
         echo
@@ -94,16 +94,16 @@ check_existing_installation() {
 }
 
 backup_existing() {
-    local backup_dir="${CLAUDE_DIR}/backups/bmad-$(date +%Y%m%d-%H%M%S)"
+    local backup_dir="${CLAUDE_DIR}/backups/accbmad-$(date +%Y%m%d-%H%M%S)"
     mkdir -p "${backup_dir}"
 
-    if [ -d "${SKILLS_DIR}/bmad" ]; then
-        mv "${SKILLS_DIR}/bmad" "${backup_dir}/skills-bmad"
+    if [ -d "${SKILLS_DIR}" ]; then
+        mv "${SKILLS_DIR}" "${backup_dir}/skills"
         log_info "Skills backed up to ${backup_dir}"
     fi
 
     if [ -d "${COMMANDS_DIR}" ]; then
-        mv "${COMMANDS_DIR}" "${backup_dir}/commands-bmad"
+        mv "${COMMANDS_DIR}" "${backup_dir}/commands"
         log_info "Commands backed up to ${backup_dir}"
     fi
 
@@ -169,7 +169,7 @@ install_shared_resources() {
 
     # Install shared directory (helpers, tasks)
     if [ -d "${SOURCE_DIR}/shared" ]; then
-        cp -r "${SOURCE_DIR}/shared" "${SKILLS_DIR}/bmad-shared"
+        cp -r "${SOURCE_DIR}/shared" "${SKILLS_DIR}/shared"
         log_success "Shared resources installed"
     fi
 
@@ -183,7 +183,7 @@ install_shared_resources() {
 
     # Install examples
     if [ -d "${SOURCE_DIR}/examples" ]; then
-        cp -r "${SOURCE_DIR}/examples" "${SKILLS_DIR}/bmad-examples"
+        cp -r "${SOURCE_DIR}/examples" "${SKILLS_DIR}/examples"
         log_success "Examples installed"
     fi
 }
@@ -279,13 +279,13 @@ install_documentation() {
 
     # Copy BMAD-GUIDE.md for project guidance
     if [ -f "${SOURCE_DIR}/BMAD-GUIDE.md" ]; then
-        cp "${SOURCE_DIR}/BMAD-GUIDE.md" "${SKILLS_DIR}/BMAD-GUIDE.md"
+        cp "${SOURCE_DIR}/BMAD-GUIDE.md" "${SKILLS_DIR}/GUIDE.md"
         log_success "Project guide installed"
     fi
 
     # Copy BMAD-SUBAGENT-PATTERNS.md
     if [ -f "${SOURCE_DIR}/BMAD-SUBAGENT-PATTERNS.md" ]; then
-        cp "${SOURCE_DIR}/BMAD-SUBAGENT-PATTERNS.md" "${SKILLS_DIR}/BMAD-SUBAGENT-PATTERNS.md"
+        cp "${SOURCE_DIR}/BMAD-SUBAGENT-PATTERNS.md" "${SKILLS_DIR}/SUBAGENT-PATTERNS.md"
         log_success "Subagent patterns installed"
     fi
 }

@@ -266,23 +266,31 @@ Then copy the appropriate config before running BMAD commands.
 ```
 ~/.claude/
 ├── skills/
-│   └── bmad/
-│       ├── core/
-│       │   └── bmad-master/SKILL.md
-│       ├── bmm/
-│       │   ├── analyst/SKILL.md
-│       │   ├── pm/SKILL.md
-│       │   ├── architect/SKILL.md
-│       │   ├── scrum-master/SKILL.md
-│       │   ├── developer/SKILL.md
-│       │   └── ux-designer/SKILL.md
-│       ├── bmb/
-│       │   └── builder/SKILL.md
-│       ├── cis/
-│       │   └── creative-intelligence/SKILL.md
-│       └── custom/              # Your custom agents
+│   └── accbmad/
+│       ├── bmad-orchestrator/
+│       │   └── SKILL.md
+│       ├── business-analyst/
+│       │   └── SKILL.md
+│       ├── product-manager/
+│       │   └── SKILL.md
+│       ├── system-architect/
+│       │   └── SKILL.md
+│       ├── scrum-master/
+│       │   └── SKILL.md
+│       ├── developer/
+│       │   └── SKILL.md
+│       ├── ux-designer/
+│       │   └── SKILL.md
+│       ├── tech-writer/
+│       │   └── SKILL.md
+│       ├── creative-intelligence/
+│       │   └── SKILL.md
+│       ├── builder/
+│       │   └── SKILL.md
+│       ├── shared/              # Shared helpers and templates
+│       └── examples/            # Example configurations
 ├── commands/
-│   └── bmad/
+│   └── accbmad/
 │       ├── workflow-init.md
 │       ├── workflow-status.md
 │       ├── product-brief.md
@@ -298,16 +306,8 @@ Then copy the appropriate config before running BMAD commands.
 │       ├── research.md
 │       ├── create-agent.md
 │       ├── create-workflow.md
-│       └── custom/              # Your custom commands
-└── config/
-    └── bmad/
-        ├── config.yaml           # Global config
-        └── templates/            # Templates
-            ├── product-brief.md
-            ├── prd.md
-            ├── tech-spec.md
-            ├── architecture.md
-            └── bmm-workflow-status.template.yaml
+│       └── ... (34 commands total)
+└── hooks/
 ```
 
 ### After Project Init

@@ -274,18 +274,19 @@ After installation, files are located at:
 ```
 ~/.claude/
 +-- skills/
-|   +-- bmad-orchestrator/
-|   +-- business-analyst/
-|   +-- product-manager/
-|   +-- system-architect/
-|   +-- scrum-master/
-|   +-- developer/
-|   +-- ux-designer/
-|   +-- tech-writer/
-|   +-- creative-intelligence/
-|   +-- builder/
-|   +-- bmad-shared/
-|   +-- bmad-examples/
+|   +-- accbmad/
+|       +-- bmad-orchestrator/
+|       +-- business-analyst/
+|       +-- product-manager/
+|       +-- system-architect/
+|       +-- scrum-master/
+|       +-- developer/
+|       +-- ux-designer/
+|       +-- tech-writer/
+|       +-- creative-intelligence/
+|       +-- builder/
+|       +-- shared/
+|       +-- examples/
 +-- commands/
 |   +-- accbmad/
 |       +-- workflow-init.md
