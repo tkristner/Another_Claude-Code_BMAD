@@ -30,11 +30,11 @@ Use this workflow when:
 
 ## Pre-Flight
 
-1. **Load project config** - Check `bmad/config.yaml`
+1. **Load project config** - Check `accbmad/config.yaml`
 2. **Load planning documents:**
-   - PRD: `docs/prd-*.md`
-   - Tech-spec: `docs/tech-spec-*.md` (if no PRD)
-   - Architecture: `docs/architecture-*.md` (Level 2+)
+   - PRD: `accbmad/2-planning/prd-*.md`
+   - Tech-spec: `accbmad/2-planning/tech-spec-*.md` (if no PRD)
+   - Architecture: `accbmad/3-solutioning/architecture-*.md` (Level 2+)
    - Epics: `docs/epics.md`
 3. **Check existing sprint status** - `bmad/sprint-status.yaml`
    - If exists: Resume or plan next sprint

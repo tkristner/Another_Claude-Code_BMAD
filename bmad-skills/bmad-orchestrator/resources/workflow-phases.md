@@ -204,7 +204,7 @@ Complete reference for all 4 BMAD phases, workflows, and project levels.
 **Output:**
 - Sprint plan with epics and stories
 - sprint-status.yaml tracking file
-- Story files in docs/stories/
+- Story files in accbmad/4-implementation/stories/
 
 **Duration:** 1-3 hours
 
@@ -222,7 +222,7 @@ Complete reference for all 4 BMAD phases, workflows, and project levels.
 
 **Purpose:** Create individual user story with details.
 
-**Output:** Story file (docs/stories/story-{epic}-{id}.md) with:
+**Output:** Story file (accbmad/4-implementation/stories/story-{epic}-{id}.md) with:
 - User story format
 - Acceptance criteria
 - Tasks breakdown

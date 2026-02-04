@@ -2,7 +2,7 @@
 # Check current BMAD phase and recommend next workflow
 # Usage: ./check-phase.sh
 
-STATUS_FILE="${BMAD_STATUS_FILE:-docs/bmm-workflow-status.yaml}"
+STATUS_FILE="${BMAD_STATUS_FILE:-accbmad/status.yaml}"
 
 if [ ! -f "$STATUS_FILE" ]; then
     echo "BMAD_STATUS: not_initialized"

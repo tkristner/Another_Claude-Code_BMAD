@@ -12,7 +12,7 @@
 
 **Best for:** Level 0-1 projects (1-10 stories)
 
-**Output:** `docs/tech-spec-{project-name}-{date}.md`
+**Output:** `accbmad/2-planning/tech-spec-{project-name}-{date}.md`
 
 ---
 
@@ -170,7 +170,7 @@ Format:
 
 1. Load template if available
 2. Substitute all variables
-3. Save to `docs/tech-spec-{project-name}-{date}.md`
+3. Save to `accbmad/2-planning/tech-spec-{project-name}-{date}.md`
 4. Display summary:
    ```
    Tech Spec Created!
@@ -200,9 +200,9 @@ Format:
 
 ## Update Status
 
-Update `docs/bmm-workflow-status.yaml`:
+Update `accbmad/status.yaml`:
 ```yaml
-tech_spec: "docs/tech-spec-{project-name}-{date}.md"
+tech_spec: "accbmad/2-planning/tech-spec-{project-name}-{date}.md"
 last_updated: {date}
 ```
 

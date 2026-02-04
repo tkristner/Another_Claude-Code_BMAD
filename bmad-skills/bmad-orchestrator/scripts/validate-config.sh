@@ -12,7 +12,7 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # Default file to validate
-CONFIG_FILE="${1:-bmad/config.yaml}"
+CONFIG_FILE="${1:-accbmad/config.yaml}"
 
 # Check if file exists
 if [ ! -f "$CONFIG_FILE" ]; then

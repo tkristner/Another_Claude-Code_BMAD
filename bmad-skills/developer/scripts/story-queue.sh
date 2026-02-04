@@ -16,7 +16,7 @@ set -euo pipefail
 # Find sprint status file
 find_status_file() {
     local locations=(
-        "docs/sprint-status.yaml"
+        "accbmad/4-implementation/sprint.yaml"
         "bmad/sprint-status.yaml"
         ".bmad/sprint-status.yaml"
     )
@@ -86,7 +86,7 @@ cmd_next() {
         echo "║    git checkout -b story/$next_story"
         echo "║                                                                  ║"
         echo "║  STEP 2: Implement story $next_story"
-        echo "║    - Read story file from docs/stories/                          ║"
+        echo "║    - Read story file from accbmad/4-implementation/stories/                          ║"
         echo "║    - Implement all acceptance criteria                           ║"
         echo "║    - Write tests                                                 ║"
         echo "║                                                                  ║"

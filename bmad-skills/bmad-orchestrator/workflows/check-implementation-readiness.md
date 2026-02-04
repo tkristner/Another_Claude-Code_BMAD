@@ -32,16 +32,16 @@ Use this workflow:
 
 ## Pre-Flight
 
-1. **Load project configuration** - Read `bmad/config.yaml` for project level
+1. **Load project configuration** - Read `accbmad/config.yaml` for project level
 2. **Determine validation scope**:
    - Level 0-1: PRD completeness, story coverage, estimation only
    - Level 2+: Full validation including architecture
 3. **Locate all documents**:
-   - PRD: `docs/prd-*.md` or `docs/prd.md`
-   - Architecture: `docs/architecture-*.md` (Level 2+)
-   - Stories: `docs/stories/STORY-*.md`
+   - PRD: `accbmad/2-planning/prd-*.md` or `accbmad/2-planning/prd.md`
+   - Architecture: `accbmad/3-solutioning/architecture-*.md` (Level 2+)
+   - Stories: `accbmad/4-implementation/stories/STORY-*.md`
    - Epics: Extract from PRD or `docs/epics/EPIC-*.md`
-   - Sprint Status: `docs/sprint-status.yaml` or `bmad/sprint-status.yaml`
+   - Sprint Status: `accbmad/4-implementation/sprint.yaml` or `bmad/sprint-status.yaml`
 
 ---
 
@@ -255,7 +255,7 @@ stories:
     depends_on: ["STORY-002", "STORY-003"]
 ```
 
-From Story files (docs/stories/STORY-*.md):
+From Story files (accbmad/4-implementation/stories/STORY-*.md):
 ```markdown
 ## Dependencies
 - **Depends on:** STORY-002, STORY-003
@@ -325,11 +325,11 @@ From Story files (docs/stories/STORY-*.md):
 ### Step 1: Load Project Documents
 
 ```
-1. Read bmad/config.yaml → project_level, project_name
-2. Glob docs/prd-*.md → PRD file(s)
-3. Glob docs/architecture-*.md → Architecture file(s) (if Level 2+)
-4. Glob docs/stories/STORY-*.md → Story files
-5. Read docs/sprint-status.yaml or bmad/sprint-status.yaml → Sprint data
+1. Read accbmad/config.yaml → project_level, project_name
+2. Glob accbmad/2-planning/prd-*.md → PRD file(s)
+3. Glob accbmad/3-solutioning/architecture-*.md → Architecture file(s) (if Level 2+)
+4. Glob accbmad/4-implementation/stories/STORY-*.md → Story files
+5. Read accbmad/4-implementation/sprint.yaml or bmad/sprint-status.yaml → Sprint data
 ```
 
 ### Step 2: Execute Validation Checks
@@ -693,7 +693,7 @@ Validation is complete when:
 ## Notes for Claude
 
 **Tool Usage:**
-- Use Glob to find documents: `docs/prd-*.md`, `docs/stories/STORY-*.md`
+- Use Glob to find documents: `accbmad/2-planning/prd-*.md`, `accbmad/4-implementation/stories/STORY-*.md`
 - Use Grep to extract patterns: `FR-\d{3}`, `STORY-\d{3}`
 - Use Read to parse document content
 - Use Write to save validation report

@@ -140,7 +140,7 @@ TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 echo -e "${BLUE}Creating project configuration...${NC}"
 
 CONFIG_TEMPLATE="${SKILL_PATH}/templates/config.template.yaml"
-CONFIG_OUTPUT="bmad/config.yaml"
+CONFIG_OUTPUT="accbmad/config.yaml"
 
 if [ -f "$CONFIG_TEMPLATE" ]; then
   # Use template if available

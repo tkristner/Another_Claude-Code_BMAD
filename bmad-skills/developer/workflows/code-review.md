@@ -324,7 +324,7 @@ Quick reference for what to verify:
 ## Example Session
 
 ```
-User: /code-review docs/stories/STORY-042.md
+User: /code-review accbmad/4-implementation/stories/STORY-042.md
 
 Code Review: Loading story STORY-042...
 

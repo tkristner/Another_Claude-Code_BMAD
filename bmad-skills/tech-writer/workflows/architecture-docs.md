@@ -29,7 +29,7 @@
 
 ## Pre-Flight
 
-1. **Review existing architecture** - docs/architecture-*.md
+1. **Review existing architecture** - accbmad/3-solutioning/architecture-*.md
 2. **Identify components** - What needs documenting
 3. **Check ADRs** - Existing decision records
 4. **Determine audience** - New devs, external teams, future self

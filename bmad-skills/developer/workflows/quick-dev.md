@@ -308,7 +308,7 @@ The review step is CRITICAL. Approach with:
 ## Example Session
 
 ```
-User: quick-dev docs/tech-spec-password-reset.md
+User: quick-dev accbmad/2-planning/tech-spec-password-reset.md
 
 Quick-Dev: Loading tech-spec...
 

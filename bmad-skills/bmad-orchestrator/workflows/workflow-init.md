@@ -5,7 +5,7 @@ Set up BMAD Method structure and configuration in the current project.
 
 ## Execution
 1. Activate the **bmad-orchestrator** skill
-2. Check for existing `bmad/config.yaml`
+2. Check for existing `accbmad/config.yaml`
 3. Create project structure:
    ```
    bmad/

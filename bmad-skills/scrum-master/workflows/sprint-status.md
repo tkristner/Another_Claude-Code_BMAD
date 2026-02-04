@@ -8,7 +8,7 @@
 
 **Trigger keywords:** sprint status, sprint progress, backlog status, story status, what's next, burndown, velocity
 
-**Inputs:** `docs/sprint-status.yaml`, story files from `docs/stories/`
+**Inputs:** `accbmad/4-implementation/sprint.yaml`, story files from `accbmad/4-implementation/stories/`
 
 **Output:** Status report with recommendations (displayed, not saved)
 
@@ -37,7 +37,7 @@ Use this workflow when:
 
 1. **Search for Status File**
 
-   Look for `docs/sprint-status.yaml` or `.bmad/sprint-status.yaml`
+   Look for `accbmad/4-implementation/sprint.yaml` or `.bmad/sprint-status.yaml`
 
 2. **If Not Found**
 
@@ -198,7 +198,7 @@ Use this workflow when:
 ## Sprint Status
 
 **Project:** {project_name} ({project_key})
-**Status File:** docs/sprint-status.yaml
+**Status File:** accbmad/4-implementation/sprint.yaml
 **Last Updated:** {timestamp}
 
 ---
@@ -317,7 +317,7 @@ Today: 8 pts remaining
 
 ## Status File Format
 
-**Expected format for `docs/sprint-status.yaml`:**
+**Expected format for `accbmad/4-implementation/sprint.yaml`:**
 
 ```yaml
 # Sprint Status File
@@ -327,7 +327,7 @@ generated: 2026-02-01
 project: My Project
 project_key: my-project
 tracking_system: bmad
-story_location: docs/stories/
+story_location: accbmad/4-implementation/stories/
 
 development_status:
   # Epic 1
@@ -356,7 +356,7 @@ development_status:
 ## Notes for Claude
 
 **Tool Usage:**
-- Use Glob to find status file: `docs/sprint-status.yaml`
+- Use Glob to find status file: `accbmad/4-implementation/sprint.yaml`
 - Use Read to load status file
 - Use Read to load story files for additional context
 - Use TodoWrite to track any updates needed

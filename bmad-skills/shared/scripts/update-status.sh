@@ -1,11 +1,11 @@
 #!/bin/bash
 # Update BMAD workflow status
 # Usage: ./update-status.sh <workflow> <output_file>
-# Example: ./update-status.sh product_brief docs/product-brief-myapp-2025-01-15.md
+# Example: ./update-status.sh product_brief accbmad/1-analysis/product-brief-myapp-2025-01-15.md
 
 WORKFLOW=$1
 OUTPUT_FILE=$2
-STATUS_FILE="${BMAD_STATUS_FILE:-docs/bmm-workflow-status.yaml}"
+STATUS_FILE="${BMAD_STATUS_FILE:-accbmad/status.yaml}"
 TIMESTAMP=$(date -Iseconds)
 
 if [ -z "$WORKFLOW" ]; then

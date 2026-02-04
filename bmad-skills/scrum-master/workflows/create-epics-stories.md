@@ -8,7 +8,7 @@
 
 **Trigger keywords:** create epics, create stories, breakdown requirements, epic breakdown, story creation, requirements to stories
 
-**Inputs:** PRD (`docs/prd-*.md`), Architecture (`docs/architecture-*.md`, optional)
+**Inputs:** PRD (`accbmad/2-planning/prd-*.md`), Architecture (`accbmad/3-solutioning/architecture-*.md`, optional)
 
 **Output:** `docs/epics.md` - Complete epic and story breakdown
 
@@ -43,7 +43,7 @@ Use this workflow when:
 
 ## Pre-Flight
 
-1. **Load project context** - Check for `bmad/config.yaml` or `CLAUDE.md`
+1. **Load project context** - Check for `accbmad/config.yaml` or `CLAUDE.md`
 2. **Verify PRD exists** - Search `docs/*prd*.md`
 3. **Check for architecture** - Search `docs/*architecture*.md` (optional for Level 0-1)
 4. **Load existing epics** - Check if `docs/epics.md` already exists (resume vs new)
@@ -78,8 +78,8 @@ Use this workflow when:
 1. **Find Input Documents**
 
    Search for:
-   - `docs/prd-*.md` or `docs/*prd*.md` - Product Requirements Document
-   - `docs/architecture-*.md` - Architecture document (optional)
+   - `accbmad/2-planning/prd-*.md` or `docs/*prd*.md` - Product Requirements Document
+   - `accbmad/3-solutioning/architecture-*.md` - Architecture document (optional)
    - `docs/ux-*.md` or `docs/design-*.md` - UX Design (optional)
 
 2. **Extract Requirements Inventory**
@@ -389,7 +389,7 @@ Requirements Coverage:
 ---
 project: {project_name}
 created: {date}
-prd_source: docs/prd-{project}.md
+prd_source: accbmad/2-planning/prd-{project}.md
 status: ready_for_sprint
 ---
 
@@ -544,7 +544,7 @@ User: /create-epics-stories
 
 Loading prerequisites...
 
-Found: docs/prd-task-manager.md
+Found: accbmad/2-planning/prd-task-manager.md
 Extracted: 12 Functional Requirements, 4 NFRs
 
 Designing Epic Structure...

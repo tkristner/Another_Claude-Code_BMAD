@@ -100,8 +100,8 @@ cd Another_Claude-Code_BMAD
 ```
 
 This creates:
-- `bmad/config.yaml` - Project configuration
-- `docs/bmm-workflow-status.yaml` - Workflow tracking
+- `accbmad/config.yaml` - Project configuration
+- `accbmad/status.yaml` - Workflow tracking
 
 ### Check Status
 

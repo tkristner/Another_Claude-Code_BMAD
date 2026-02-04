@@ -12,7 +12,7 @@
 
 **Inputs:** PRD or tech-spec with user stories and acceptance criteria
 
-**Output:** `docs/ux-design-{project-name}.md`
+**Output:** `accbmad/2-planning/ux-design-{project-name}.md`
 
 **Duration:** 60-120 minutes
 
@@ -323,7 +323,7 @@ Desktop: 1024px+
 
 ### Part 9: Generate Document
 
-**Save to:** `docs/ux-design-{project-name}.md`
+**Save to:** `accbmad/2-planning/ux-design-{project-name}.md`
 
 **Structure:**
 ```markdown
@@ -365,9 +365,9 @@ Screens: {count}, Flows: {count}, Components: {count}
 
 ## Update Status
 
-Update `docs/bmm-workflow-status.yaml`:
+Update `accbmad/status.yaml`:
 ```yaml
-ux_design: "docs/ux-design-{project}.md"
+ux_design: "accbmad/2-planning/ux-design-{project}.md"
 ux_design_date: {date}
 screens_designed: {count}
 accessibility_level: {level}

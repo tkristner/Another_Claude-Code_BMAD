@@ -16,7 +16,7 @@ if [ $# -eq 0 ]; then
     echo "Usage: $0 <path-to-architecture-document>"
     echo ""
     echo "Example:"
-    echo "  $0 docs/architecture-myproject-2025-12-09.md"
+    echo "  $0 accbmad/3-solutioning/architecture-myproject-2025-12-09.md"
     exit 1
 fi
 

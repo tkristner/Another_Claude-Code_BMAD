@@ -610,7 +610,7 @@ Key requirements that heavily influence architectural decisions:
 
 ### References
 
-- Requirements Document: `docs/prd-{{project-name}}-{{date}}.md`
+- Requirements Document: `accbmad/2-planning/prd-{{project-name}}-{{date}}.md`
 - API Documentation: `docs/api-{{project-name}}.md`
 - Database Schema: `docs/schema-{{project-name}}.sql`
 

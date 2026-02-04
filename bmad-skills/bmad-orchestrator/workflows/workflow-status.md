@@ -4,9 +4,9 @@ You are executing the **Workflow Status** command to check project progress.
 Display BMAD project status and recommend next steps.
 
 ## Execution
-1. Read `bmad/config.yaml` for project info
-2. Read `docs/bmm-workflow-status.yaml` for workflow progress
-3. Read `docs/sprint-status.yaml` if it exists for sprint info
+1. Read `accbmad/config.yaml` for project info
+2. Read `accbmad/status.yaml` for workflow progress
+3. Read `accbmad/4-implementation/sprint.yaml` if it exists for sprint info
 4. Display:
    - Project overview (name, type, level)
    - Phase completion status (Analysis, Planning, Solutioning, Implementation)

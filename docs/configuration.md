@@ -17,8 +17,8 @@ BMAD uses two configuration files:
 
 | File | Location | Purpose |
 |------|----------|---------|
-| Global Config | `~/.claude/config/bmad/config.yaml` | User-wide settings |
-| Project Config | `{project}/bmad/config.yaml` | Project-specific settings |
+| Global Config | `~/.claude/config/accbmad/config.yaml` | User-wide settings |
+| Project Config | `{project}/accbmad/config.yaml` | Project-specific settings |
 
 Project settings override global settings when both are present.
 
@@ -26,13 +26,13 @@ Project settings override global settings when both are present.
 
 ## Global Configuration
 
-The global config is created during installation at `~/.claude/config/bmad/config.yaml`.
+The global config is created during installation at `~/.claude/config/accbmad/config.yaml`.
 
 ### Full Configuration
 
 ```yaml
 # BMAD Global Configuration
-# Location: ~/.claude/config/bmad/config.yaml
+# Location: ~/.claude/config/accbmad/config.yaml
 
 # Version of BMAD
 version: "1.3.0"
@@ -116,13 +116,13 @@ When `true`, shows detailed operation logs. Useful for debugging.
 
 ## Project Configuration
 
-Project config is created by `/workflow-init` at `{project}/bmad/config.yaml`.
+Project config is created by `/workflow-init` at `{project}/accbmad/config.yaml`.
 
 ### Full Configuration
 
 ```yaml
 # BMAD Project Configuration
-# Location: {project}/bmad/config.yaml
+# Location: {project}/accbmad/config.yaml
 
 # Project Information
 project_name: "My Project"
@@ -141,10 +141,10 @@ output_folder: "docs"
 # BMM Module Settings
 bmm:
   # Workflow tracking file
-  workflow_status_file: "docs/bmm-workflow-status.yaml"
+  workflow_status_file: "accbmad/status.yaml"
 
   # Sprint tracking file
-  sprint_status_file: "docs/sprint-status.yaml"
+  sprint_status_file: "accbmad/4-implementation/sprint.yaml"
 
 # Path configuration
 paths:
@@ -152,7 +152,7 @@ paths:
   docs: "docs"
 
   # User stories
-  stories: "docs/stories"
+  stories: "accbmad/4-implementation/stories"
 
   # Test files
   tests: "tests"
@@ -209,7 +209,7 @@ bmm:
 
 ### Multiple Projects with Different Settings
 
-You can have different settings per project by modifying each project's `bmad/config.yaml`:
+You can have different settings per project by modifying each project's `accbmad/config.yaml`:
 
 **Project A (strict process):**
 ```yaml
@@ -235,7 +235,7 @@ For teams, consider:
 
 ```bash
 # Add to version control
-git add bmad/config.yaml
+git add accbmad/config.yaml
 git commit -m "Add BMAD project configuration"
 ```
 
@@ -244,14 +244,14 @@ git commit -m "Add BMAD project configuration"
 For different environments, use separate config files:
 
 ```yaml
-# bmad/config.yaml (default)
+# accbmad/config.yaml (default)
 project_name: "My Project"
 output_folder: "docs"
 
-# bmad/config.staging.yaml
+# accbmad/config.staging.yaml
 output_folder: "docs-staging"
 
-# bmad/config.prod.yaml
+# accbmad/config.prod.yaml
 output_folder: "docs-prod"
 ```
 
@@ -314,20 +314,22 @@ Then copy the appropriate config before running BMAD commands.
 
 ```
 your-project/
-├── bmad/
-│   └── config.yaml              # Project config
-├── docs/
-│   ├── product-brief.md         # Created by /product-brief
-│   ├── prd.md                   # Created by /prd
-│   ├── tech-spec.md             # Created by /tech-spec
-│   ├── architecture.md          # Created by /architecture
-│   ├── ux-design.md             # Created by /create-ux-design
-│   ├── bmm-workflow-status.yaml # Workflow status
-│   ├── sprint-status.yaml       # Sprint status
-│   └── stories/
-│       ├── STORY-001.md
-│       ├── STORY-002.md
-│       └── ...
+├── accbmad/
+│   ├── config.yaml              # Project config
+│   ├── status.yaml              # Workflow status
+│   ├── 1-analysis/
+│   │   └── product-brief.md     # Created by /product-brief
+│   ├── 2-planning/
+│   │   ├── prd.md               # Created by /prd
+│   │   ├── tech-spec.md         # Created by /tech-spec
+│   │   └── ux-design.md         # Created by /create-ux-design
+│   ├── 3-solutioning/
+│   │   └── architecture.md      # Created by /architecture
+│   └── 4-implementation/
+│       ├── sprint.yaml          # Sprint status
+│       └── stories/
+│           ├── STORY-001.md
+│           └── ...
 └── [your code]
 ```
 
@@ -434,7 +436,7 @@ When a new version is released:
 
 1. **Backup your config:**
    ```bash
-   cp ~/.claude/config/bmad/config.yaml ~/.claude/config/bmad/config.yaml.bak
+   cp ~/.claude/config/accbmad/config.yaml ~/.claude/config/accbmad/config.yaml.bak
    ```
 
 2. **Run installer:**
@@ -482,7 +484,7 @@ version: "1.3.0"
 **Fixes:**
 1. Project config overrides global
 2. Check you're in correct project directory
-3. Ensure `bmad/config.yaml` exists
+3. Ensure `accbmad/config.yaml` exists
 
 ---
 
@@ -491,7 +493,7 @@ version: "1.3.0"
 ### 1. Version Control Project Config
 
 ```bash
-git add bmad/config.yaml
+git add accbmad/config.yaml
 ```
 
 This ensures team members have same project settings.
@@ -520,7 +522,7 @@ If you don't use Creative Intelligence, don't enable CIS module. Reduces cogniti
 
 **Change your name:**
 ```yaml
-# ~/.claude/config/bmad/config.yaml
+# ~/.claude/config/accbmad/config.yaml
 user_name: "Your Name"
 ```
 
@@ -535,13 +537,13 @@ modules_enabled:
 
 **Change output folder:**
 ```yaml
-# bmad/config.yaml (project)
+# accbmad/config.yaml (project)
 output_folder: "documentation"
 ```
 
 **Change project level:**
 ```yaml
-# bmad/config.yaml (project)
+# accbmad/config.yaml (project)
 project_level: 3
 ```
 

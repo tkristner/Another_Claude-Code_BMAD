@@ -34,7 +34,7 @@ Use before major phase transitions to catch issues early:
 
 ## Pre-Flight
 
-1. **Load project context** - Check `bmad/config.yaml` for project level
+1. **Load project context** - Check `accbmad/config.yaml` for project level
 2. **Identify transition** - Determine which phases to validate
 3. **Locate documents** - Find relevant phase artifacts in `docs/`
 4. **Check prerequisites** - Ensure previous phase documents exist
@@ -60,8 +60,8 @@ Use before major phase transitions to catch issues early:
 
 1. **Load Documents**
    ```
-   - Product Brief: docs/product-brief-*.md
-   - PRD: docs/prd-*.md
+   - Product Brief: accbmad/1-analysis/product-brief-*.md
+   - PRD: accbmad/2-planning/prd-*.md
    ```
 
 2. **Extract Key Elements**
@@ -140,8 +140,8 @@ Use before major phase transitions to catch issues early:
 
 1. **Load Documents**
    ```
-   - PRD: docs/prd-*.md
-   - Architecture: docs/architecture-*.md
+   - PRD: accbmad/2-planning/prd-*.md
+   - Architecture: accbmad/3-solutioning/architecture-*.md
    ```
 
 2. **Extract Requirements**
@@ -220,9 +220,9 @@ Use before major phase transitions to catch issues early:
 
 1. **Load Documents**
    ```
-   - Architecture: docs/architecture-*.md
-   - Sprint Status: docs/sprint-status.yaml
-   - Stories: docs/stories/STORY-*.md
+   - Architecture: accbmad/3-solutioning/architecture-*.md
+   - Sprint Status: accbmad/4-implementation/sprint.yaml
+   - Stories: accbmad/4-implementation/stories/STORY-*.md
    - Epics: docs/epics/*.md (if exists)
    ```
 
@@ -386,7 +386,7 @@ For inline use within other workflows:
 
 Before starting PRD, verify:
 
-- [ ] Product Brief exists at `docs/product-brief-*.md`
+- [ ] Product Brief exists at `accbmad/1-analysis/product-brief-*.md`
 - [ ] Brief has problem statement defined
 - [ ] Brief has target users/personas
 - [ ] Brief has success metrics/KPIs
@@ -396,7 +396,7 @@ Before starting PRD, verify:
 
 Before starting Architecture, verify:
 
-- [ ] PRD exists at `docs/prd-*.md`
+- [ ] PRD exists at `accbmad/2-planning/prd-*.md`
 - [ ] PRD has numbered FRs (FR-XXX)
 - [ ] PRD has numbered NFRs (NFR-XXX)
 - [ ] PRD scope is bounded (out-of-scope defined)
@@ -406,7 +406,7 @@ Before starting Architecture, verify:
 
 Before starting Sprint Planning, verify:
 
-- [ ] Architecture exists at `docs/architecture-*.md` (Level 2+)
+- [ ] Architecture exists at `accbmad/3-solutioning/architecture-*.md` (Level 2+)
 - [ ] Components are defined with responsibilities
 - [ ] Data model is documented
 - [ ] Epics exist with story breakdown
@@ -456,7 +456,7 @@ Validation is complete when:
 ## Notes for Claude
 
 **Tool Usage:**
-- Use Glob to find phase documents: `docs/product-brief-*.md`
+- Use Glob to find phase documents: `accbmad/1-analysis/product-brief-*.md`
 - Use Read to load and parse documents
 - Use Write to save validation report
 - Use grep patterns to extract FR-XXX, NFR-XXX
@@ -485,4 +485,4 @@ Stop the workflow and notify user if:
 | Source phase document missing | "Cannot validate - no {{phase}} document found." | Create source document first |
 | Target phase already complete | "Phase {{to}} already has deliverables. Validation may be redundant." | Proceed or skip |
 | Invalid phase transition | "Invalid transition: Phase {{from}} → Phase {{to}}." | Specify valid transition |
-| No project config | "No bmad/config.yaml found. Run `/workflow-init` first." | Initialize project |
+| No project config | "No accbmad/config.yaml found. Run `/workflow-init` first." | Initialize project |

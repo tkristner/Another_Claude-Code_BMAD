@@ -62,8 +62,8 @@ Navigate to your project and initialize BMAD:
 ```
 
 This creates:
-- `bmad/config.yaml` - Project configuration
-- `docs/bmm-workflow-status.yaml` - Workflow tracking
+- `accbmad/config.yaml` - Project configuration
+- `accbmad/status.yaml` - Workflow tracking
 
 ---
 
@@ -125,14 +125,20 @@ After initialization:
 
 ```
 your-project/
-├── bmad/
-│   └── config.yaml
-└── docs/
-    ├── bmm-workflow-status.yaml
-    ├── tech-spec.md (or prd.md)
-    ├── sprint-status.yaml
-    └── stories/
-        └── STORY-XXX.md
+└── accbmad/
+    ├── config.yaml
+    ├── status.yaml
+    ├── 1-analysis/
+    │   └── product-brief.md
+    ├── 2-planning/
+    │   ├── prd.md
+    │   └── tech-spec.md
+    ├── 3-solutioning/
+    │   └── architecture.md
+    └── 4-implementation/
+        ├── sprint.yaml
+        └── stories/
+            └── STORY-XXX.md
 ```
 
 ---

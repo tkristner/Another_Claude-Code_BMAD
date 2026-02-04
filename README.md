@@ -123,8 +123,8 @@ After restarting Claude Code:
 ```
 
 This creates:
-- `bmad/config.yaml` - Project configuration
-- `docs/bmm-workflow-status.yaml` - Workflow tracking
+- `accbmad/config.yaml` - Project configuration
+- `accbmad/status.yaml` - Workflow tracking
 
 ### 2. Check status and get recommendations
 

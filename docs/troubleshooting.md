@@ -140,7 +140,7 @@ git pull origin main
 /workflow-init
 ```
 
-This creates `bmad/config.yaml` in your project root.
+This creates `accbmad/config.yaml` in your project root.
 
 ---
 
@@ -161,13 +161,13 @@ This creates `bmad/config.yaml` in your project root.
 
    Check your output folder:
    ```yaml
-   # bmad/config.yaml
+   # accbmad/config.yaml
    output_folder: "docs"  # Product brief should be here
    ```
 
    Move file if needed:
    ```bash
-   mv product-brief.md docs/product-brief.md
+   mv product-brief.md accbmad/1-analysis/product-brief.md
    ```
 
 3. **Different output folder than expected**
@@ -192,7 +192,7 @@ This creates `bmad/config.yaml` in your project root.
 
 Or if you're Level 0-1, you don't need architecture. Check your project level:
 ```yaml
-# bmad/config.yaml
+# accbmad/config.yaml
 project_level: 1  # No architecture needed
 ```
 
@@ -242,7 +242,7 @@ project_level: 1  # No architecture needed
 
 # Or use yamllint
 pip install yamllint
-yamllint bmad/config.yaml
+yamllint accbmad/config.yaml
 ```
 
 ---
@@ -259,7 +259,7 @@ yamllint bmad/config.yaml
 
    Level affects what's required:
    ```yaml
-   # bmad/config.yaml
+   # accbmad/config.yaml
    project_level: 2  # Requires PRD, architecture
    project_level: 1  # Only tech spec needed
    ```
@@ -268,7 +268,7 @@ yamllint bmad/config.yaml
 
    Manually check status:
    ```bash
-   cat docs/bmm-workflow-status.yaml
+   cat accbmad/status.yaml
    ```
 
    Update if needed:
@@ -276,7 +276,7 @@ yamllint bmad/config.yaml
    workflows:
      - name: "Product Brief"
        status: "complete"
-       file: "docs/product-brief.md"
+       file: "accbmad/1-analysis/product-brief.md"
    ```
 
 ---
@@ -289,7 +289,7 @@ yamllint bmad/config.yaml
 
 1. **Output directory doesn't exist**
    ```bash
-   mkdir -p docs/stories
+   mkdir -p accbmad/4-implementation/stories
    ```
 
 2. **Permission issues**
@@ -299,7 +299,7 @@ yamllint bmad/config.yaml
 
 3. **Incorrect output_folder**
    ```yaml
-   # bmad/config.yaml
+   # accbmad/config.yaml
    output_folder: "docs"  # Must exist
    ```
 
@@ -314,7 +314,7 @@ yamllint bmad/config.yaml
 /sprint-planning
 ```
 
-Or manually sync `docs/sprint-status.yaml` with your PRD.
+Or manually sync `accbmad/4-implementation/sprint.yaml` with your PRD.
 
 ---
 
@@ -345,9 +345,9 @@ Or manually sync `docs/sprint-status.yaml` with your PRD.
 
    Check paths:
    ```yaml
-   # bmad/config.yaml
+   # accbmad/config.yaml
    paths:
-     stories: "docs/stories"  # Stories should be here
+     stories: "accbmad/4-implementation/stories"  # Stories should be here
    ```
 
 ---
@@ -356,7 +356,7 @@ Or manually sync `docs/sprint-status.yaml` with your PRD.
 
 ### Global Config Not Applied
 
-**Symptom:** Settings from `~/.claude/config/bmad/config.yaml` ignored
+**Symptom:** Settings from `~/.claude/config/accbmad/config.yaml` ignored
 
 **Causes & Fixes:**
 
@@ -371,10 +371,10 @@ Or manually sync `docs/sprint-status.yaml` with your PRD.
 3. **File in wrong location**
    ```bash
    # Should be:
-   ~/.claude/config/bmad/config.yaml
+   ~/.claude/config/accbmad/config.yaml
 
    # Not:
-   ~/.claude/bmad/config.yaml
+   ~/.claude/accbmad/config.yaml
    ```
 
 ---
@@ -385,7 +385,7 @@ Or manually sync `docs/sprint-status.yaml` with your PRD.
 
 **Fix:** Enable module in global config:
 ```yaml
-# ~/.claude/config/bmad/config.yaml
+# ~/.claude/config/accbmad/config.yaml
 modules_enabled:
   - core
   - bmm
@@ -442,7 +442,7 @@ Then restart Claude Code.
 
 2. **Verbose mode enabled**
    ```yaml
-   # ~/.claude/config/bmad/config.yaml
+   # ~/.claude/config/accbmad/config.yaml
    verbose_mode: false  # Turn off if not debugging
    ```
 
@@ -522,7 +522,7 @@ workflow_status_file: "docs\\status.yaml"
 
 ### "No active project found"
 
-**Meaning:** BMAD can't find `bmad/config.yaml`
+**Meaning:** BMAD can't find `accbmad/config.yaml`
 
 **Fix:**
 ```
@@ -535,11 +535,11 @@ Or ensure you're in the project root directory.
 
 ### "Workflow status file not found"
 
-**Meaning:** `docs/bmm-workflow-status.yaml` doesn't exist
+**Meaning:** `accbmad/status.yaml` doesn't exist
 
 **Fix:** Create by running any workflow command, or manually:
 ```bash
-touch docs/bmm-workflow-status.yaml
+touch accbmad/status.yaml
 ```
 
 ---
@@ -550,7 +550,7 @@ touch docs/bmm-workflow-status.yaml
 
 **Fix:**
 ```yaml
-# bmad/config.yaml
+# accbmad/config.yaml
 project_level: 2  # Must be 0, 1, 2, 3, or 4
 ```
 
@@ -585,7 +585,7 @@ Or manually copy template from repository.
 ### Enable Verbose Mode
 
 ```yaml
-# ~/.claude/config/bmad/config.yaml
+# ~/.claude/config/accbmad/config.yaml
 verbose_mode: true
 ```
 
@@ -597,11 +597,11 @@ Restart Claude Code to see detailed logs.
 
 ```bash
 # View configs
-cat ~/.claude/config/bmad/config.yaml
-cat bmad/config.yaml
+cat ~/.claude/config/accbmad/config.yaml
+cat accbmad/config.yaml
 
 # View status
-cat docs/bmm-workflow-status.yaml
+cat accbmad/status.yaml
 ```
 
 ---
@@ -635,9 +635,9 @@ If things are broken, start fresh:
 cp -r docs docs.bak
 
 # Remove BMAD state
-rm bmad/config.yaml
-rm docs/bmm-workflow-status.yaml
-rm docs/sprint-status.yaml
+rm accbmad/config.yaml
+rm accbmad/status.yaml
+rm accbmad/4-implementation/sprint.yaml
 
 # Re-initialize
 /workflow-init
@@ -690,7 +690,7 @@ If you've tried the fixes above and still have problems:
 output_folder: "docs"
 
 **Files present:**
-docs/product-brief.md (exists)
+accbmad/1-analysis/product-brief.md (exists)
 ```
 
 ---

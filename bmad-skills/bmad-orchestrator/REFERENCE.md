@@ -15,7 +15,7 @@ This document provides detailed reference information for the BMAD Orchestrator 
 ### Determination Algorithm
 
 ```
-Input: workflow_status array from docs/bmm-workflow-status.yaml
+Input: workflow_status array from accbmad/status.yaml
 Output: recommended next workflow command
 
 Step 1: Identify current phase
@@ -175,7 +175,7 @@ Step 3: Return recommendation with explanation
 ### Workflow Status Schema
 
 ```yaml
-# docs/bmm-workflow-status.yaml
+# accbmad/status.yaml
 
 project_name: "string"
 project_type: "web-app|mobile-app|api|game|library|other"
@@ -203,9 +203,9 @@ workflow_status:
 ### Updating Status
 
 When a workflow completes:
-1. Read docs/bmm-workflow-status.yaml
+1. Read accbmad/status.yaml
 2. Find workflow by name
-3. Update status to file path: `"docs/prd-myapp-2025-01-11.md"`
+3. Update status to file path: `"accbmad/2-planning/prd-myapp-2025-01-11.md"`
 4. Update last_updated timestamp
 5. Write updated file
 
@@ -220,13 +220,13 @@ Example Edit operation:
 # After
 - name: prd
   phase: 2
-  status: "docs/prd-myapp-2025-01-11.md"
+  status: "accbmad/2-planning/prd-myapp-2025-01-11.md"
   description: "Product Requirements Document"
 ```
 
 ## Configuration Details
 
-### Project Config (bmad/config.yaml)
+### Project Config (accbmad/config.yaml)
 
 Complete schema:
 ```yaml
@@ -237,7 +237,7 @@ project_level: 0-4
 
 # Output settings
 output_folder: "docs"  # relative to project root
-stories_folder: "docs/stories"
+stories_folder: "accbmad/4-implementation/stories"
 
 # Language settings
 communication_language: "English|Spanish|French|etc"
@@ -250,7 +250,7 @@ bmad_version: "6.0.0"
 agent_overrides_folder: "bmad/agent-overrides"
 ```
 
-### Global Config (~/.claude/config/bmad/config.yaml)
+### Global Config (~/.claude/config/accbmad/config.yaml)
 
 ```yaml
 version: "6.0.0"
@@ -281,8 +281,8 @@ verbose_mode: false
 
 ### Config Priority
 
-1. Project config (bmad/config.yaml) - highest priority
-2. Global config (~/.claude/config/bmad/config.yaml) - default values
+1. Project config (accbmad/config.yaml) - highest priority
+2. Global config (~/.claude/config/accbmad/config.yaml) - default values
 3. Built-in defaults - fallback
 
 ## File Operations
@@ -292,7 +292,7 @@ verbose_mode: false
 **Load project config:**
 ```
 Tool: Read
-Path: {project-root}/bmad/config.yaml
+Path: {project-root}/accbmad/config.yaml
 Parse: YAML
 Extract: project_name, project_type, project_level, output_folder
 ```
@@ -300,7 +300,7 @@ Extract: project_name, project_type, project_level, output_folder
 **Load global config:**
 ```
 Tool: Read
-Path: ~/.claude/config/bmad/config.yaml
+Path: ~/.claude/config/accbmad/config.yaml
 Parse: YAML
 Extract: user_name, communication_language, default_output_folder
 ```
@@ -324,7 +324,7 @@ Content: Processed template with variables substituted
 Tool: Edit
 Path: {project-root}/{output_folder}/bmm-workflow-status.yaml
 Old: status: "required"
-New: status: "docs/prd-myapp-2025-01-11.md"
+New: status: "accbmad/2-planning/prd-myapp-2025-01-11.md"
 ```
 
 ### Directory Creation
@@ -334,7 +334,7 @@ New: status: "docs/prd-myapp-2025-01-11.md"
 Tool: Bash
 Commands:
   mkdir -p bmad/agent-overrides
-  mkdir -p docs/stories
+  mkdir -p accbmad/4-implementation/stories
   mkdir -p .claude/commands/accbmad
 ```
 
@@ -399,7 +399,7 @@ project_level: 2
 
 ```
 Project root: {project-root}/
-Config: {project-root}/bmad/config.yaml
+Config: {project-root}/accbmad/config.yaml
 Status: {project-root}/{output_folder}/bmm-workflow-status.yaml
 Sprint: {project-root}/{output_folder}/sprint-status.yaml
 Stories: {project-root}/{output_folder}/stories/
@@ -412,10 +412,10 @@ Convention: `{workflow-name}-{project-name}-{date}.md`
 
 Examples:
 ```
-docs/product-brief-myapp-2025-01-11.md
-docs/prd-myapp-2025-01-11.md
-docs/architecture-myapp-2025-01-11.md
-docs/tech-spec-myapp-2025-01-11.md
+accbmad/1-analysis/product-brief-myapp-2025-01-11.md
+accbmad/2-planning/prd-myapp-2025-01-11.md
+accbmad/3-solutioning/architecture-myapp-2025-01-11.md
+accbmad/2-planning/tech-spec-myapp-2025-01-11.md
 ```
 
 ### Story File Naming
@@ -424,9 +424,9 @@ Convention: `story-{epic-id}-{story-id}.md`
 
 Examples:
 ```
-docs/stories/story-E001-S001.md
-docs/stories/story-E001-S002.md
-docs/stories/story-E002-S001.md
+accbmad/4-implementation/stories/story-E001-S001.md
+accbmad/4-implementation/stories/story-E001-S002.md
+accbmad/4-implementation/stories/story-E002-S001.md
 ```
 
 ## Error Handling Patterns
@@ -434,7 +434,7 @@ docs/stories/story-E002-S001.md
 ### Missing Config File
 
 ```
-Error: bmad/config.yaml not found
+Error: accbmad/config.yaml not found
 
 Response:
   1. Inform user project not initialized
@@ -491,7 +491,7 @@ Response:
 Project: {project_name} ({project_type}, Level {level})
 
 ✓ Phase 1: Analysis
-  ✓ product-brief (docs/product-brief-myapp-2025-01-11.md)
+  ✓ product-brief (accbmad/1-analysis/product-brief-myapp-2025-01-11.md)
   - research (optional)
 
 → Phase 2: Planning [CURRENT]

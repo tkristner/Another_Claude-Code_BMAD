@@ -29,7 +29,7 @@
 
 ## Pre-Flight
 
-1. **Load sprint status** - Read `docs/sprint-status.yaml`
+1. **Load sprint status** - Read `accbmad/4-implementation/sprint.yaml`
 2. **Verify git state** - Must be on develop, working tree clean
 3. **Find ready stories** - Filter stories with status `ready-for-dev`
 4. **Load project context** - Read `docs/project-context.md` if exists
@@ -67,7 +67,7 @@ git checkout -b story/{story-id}
 
 Run the standard dev-story workflow for current story:
 
-1. Load story file from `docs/stories/{story-id}.md`
+1. Load story file from `accbmad/4-implementation/stories/{story-id}.md`
 2. Implement all acceptance criteria
 3. Write/update tests
 4. Ensure all tests pass
@@ -166,7 +166,7 @@ git branch -d story/{story-id}
 
 ### Step 7: Update Sprint Status
 
-Update `docs/sprint-status.yaml`:
+Update `accbmad/4-implementation/sprint.yaml`:
 
 ```yaml
 development_status:
@@ -304,8 +304,8 @@ All merged to develop ✓
 ## Integration
 
 **Requires:**
-- `docs/sprint-status.yaml` with story statuses
-- `docs/stories/{story-id}.md` for each story
+- `accbmad/4-implementation/sprint.yaml` with story statuses
+- `accbmad/4-implementation/stories/{story-id}.md` for each story
 - Clean git repository on develop branch
 
 **Calls internally:**
@@ -313,7 +313,7 @@ All merged to develop ✓
 - `/code-review` workflow (with auto-fix flag)
 
 **Updates:**
-- `docs/sprint-status.yaml` (story status → done)
+- `accbmad/4-implementation/sprint.yaml` (story status → done)
 - Git branches and commits
 
 ---

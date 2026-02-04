@@ -60,7 +60,7 @@ Exit Codes:
     2 - Invalid usage or file not found
 
 Examples:
-    $0 docs/prd-myapp-2025-12-09.md
+    $0 accbmad/2-planning/prd-myapp-2025-12-09.md
     $0 ../requirements/product-requirements.md
 EOF
 }

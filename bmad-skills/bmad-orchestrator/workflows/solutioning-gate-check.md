@@ -4,7 +4,7 @@ You are executing the **Solutioning Gate Check** command (alias for `/check-impl
 Comprehensive validation that all Phase 3 deliverables are complete before starting implementation.
 
 ## Execution
-1. Load project configuration from `bmad/config.yaml`
+1. Load project configuration from `accbmad/config.yaml`
 2. Run 5 validation categories:
    - **PRD Completeness**: 9 criteria (all project levels)
    - **Architecture**: 7 criteria (Level 2+ only)

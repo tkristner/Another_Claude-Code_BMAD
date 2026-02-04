@@ -96,8 +96,8 @@ Project: MyApp
 Type: web-app
 Level: 2 (Medium feature set)
 
-Configuration: bmad/config.yaml
-Status tracking: docs/bmm-workflow-status.yaml
+Configuration: accbmad/config.yaml
+Status tracking: accbmad/status.yaml
 
 Recommended next step: Create Product Brief with /product-brief
 This will help define your product vision and requirements.
@@ -138,8 +138,8 @@ See [workflows/generate-project-context.md](workflows/generate-project-context.m
 ### /workflow-status Details
 
 **Steps:**
-1. Load project config (bmad/config.yaml)
-2. Load workflow status (docs/bmm-workflow-status.yaml)
+1. Load project config (accbmad/config.yaml)
+2. Load workflow status (accbmad/status.yaml)
 3. Determine current phase and next recommended workflow
 4. Display status with visual indicators
 5. Offer to execute recommended workflow
@@ -159,7 +159,7 @@ Orchestrator: Checking your project status...
 Project: MyApp (Web Application, Level 2)
 
 ✓ Phase 1: Analysis
-  ✓ product-brief (docs/product-brief-myapp-2025-01-11.md)
+  ✓ product-brief (accbmad/1-analysis/product-brief-myapp-2025-01-11.md)
 
 → Phase 2: Planning [CURRENT]
   ⚠ prd (required - NOT STARTED)
@@ -241,7 +241,7 @@ See [REFERENCE.md](REFERENCE.md) for detailed routing logic.
 
 ## Configuration Files
 
-### Project Config (bmad/config.yaml)
+### Project Config (accbmad/config.yaml)
 ```yaml
 project_name: "MyApp"
 project_type: "web-app"  # web-app, mobile-app, api, game, library, other
@@ -250,7 +250,7 @@ output_folder: "docs"
 communication_language: "English"
 ```
 
-### Workflow Status (docs/bmm-workflow-status.yaml)
+### Workflow Status (accbmad/status.yaml)
 Tracks completion of each workflow with status values:
 - `"optional"` - Can be skipped
 - `"recommended"` - Strongly suggested
@@ -276,7 +276,7 @@ Execute via Bash tool:
 
 - **validate-config.sh** - Validate YAML configuration
   ```bash
-  bash scripts/validate-config.sh bmad/config.yaml
+  bash scripts/validate-config.sh accbmad/config.yaml
   ```
 
 See script help (`--help`) for detailed usage.
@@ -353,8 +353,8 @@ This skill leverages parallel subagents to maximize context utilization (each ag
 | Agent | Task | Output |
 |-------|------|--------|
 | Agent 1 | Create directory structure and validate paths | bmad/outputs/directory-setup.md |
-| Agent 2 | Generate project config from template | bmad/config.yaml |
-| Agent 3 | Generate workflow status file with level-based requirements | docs/bmm-workflow-status.yaml |
+| Agent 2 | Generate project config from template | accbmad/config.yaml |
+| Agent 3 | Generate workflow status file with level-based requirements | accbmad/status.yaml |
 
 **Coordination:**
 1. Gather project information from user (sequential)
@@ -364,7 +364,7 @@ This skill leverages parallel subagents to maximize context utilization (each ag
 ### Example Subagent Prompt
 ```
 Task: Analyze workflow status and determine current phase
-Context: Read bmad/config.yaml and docs/bmm-workflow-status.yaml
+Context: Read accbmad/config.yaml and accbmad/status.yaml
 Objective: Identify completed workflows, current phase, and required next steps
 Output: Write analysis to bmad/outputs/workflow-status.md
 

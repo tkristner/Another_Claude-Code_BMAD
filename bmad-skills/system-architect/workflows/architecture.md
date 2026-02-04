@@ -8,9 +8,9 @@
 
 **Trigger keywords:** create architecture, design architecture, system design, tech stack, architecture design, technical architecture
 
-**Inputs:** PRD (`docs/prd-*.md`), Product Brief (optional), UX Design (optional)
+**Inputs:** PRD (`accbmad/2-planning/prd-*.md`), Product Brief (optional), UX Design (optional)
 
-**Output:** `docs/architecture-{project}-{date}.md`
+**Output:** `accbmad/3-solutioning/architecture-{project}-{date}.md`
 
 **Duration:** 60-120 minutes depending on project complexity
 
@@ -46,7 +46,7 @@ Use this workflow when:
 
 ## Pre-Flight
 
-1. **Load project context** - Check for `bmad/config.yaml` or `CLAUDE.md`
+1. **Load project context** - Check for `accbmad/config.yaml` or `CLAUDE.md`
 2. **Verify PRD exists** - Search `docs/*prd*.md`
 3. **Determine project level** - Affects architecture depth
 4. **Check for existing architecture** - Resume vs new
@@ -77,8 +77,8 @@ Use this workflow when:
 1. **Load Input Documents**
 
    Search and read:
-   - `docs/prd-*.md` - Product Requirements Document
-   - `docs/product-brief-*.md` - Product Brief (optional)
+   - `accbmad/2-planning/prd-*.md` - Product Requirements Document
+   - `accbmad/1-analysis/product-brief-*.md` - Product Brief (optional)
    - `docs/ux-*.md` - UX Design (optional)
 
 2. **Extract Requirements Inventory**
@@ -434,14 +434,14 @@ Use this workflow when:
 
 3. **Save Document**
 
-   Output: `docs/architecture-{project}-{date}.md`
+   Output: `accbmad/3-solutioning/architecture-{project}-{date}.md`
 
 4. **Present Completion**
 
    ```
    ## Architecture Design Complete
 
-   **Document:** docs/architecture-{project}-{date}.md
+   **Document:** accbmad/3-solutioning/architecture-{project}-{date}.md
 
    **Summary:**
    - Pattern: {pattern}
@@ -464,7 +464,7 @@ Use this workflow when:
 3. Document assumptions and get stakeholder confirmation
 
 **If existing architecture needs extension:**
-1. Load existing `docs/architecture-*.md`
+1. Load existing `accbmad/3-solutioning/architecture-*.md`
 2. Identify sections to update
 3. Mark changes with `[UPDATED]` tags
 4. Maintain backwards compatibility unless explicitly changing
@@ -483,7 +483,7 @@ For complex projects (Level 3-4), use parallel analysis:
 | Agent 1 | Data model design | `bmad/outputs/data-model.md` |
 | Agent 2 | API design | `bmad/outputs/api-design.md` |
 | Agent 3 | NFR solutions | `bmad/outputs/nfr-solutions.md` |
-| Main | Synthesize into architecture | `docs/architecture-*.md` |
+| Main | Synthesize into architecture | `accbmad/3-solutioning/architecture-*.md` |
 
 **Coordination:**
 1. Main context selects pattern and stack

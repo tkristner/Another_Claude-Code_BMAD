@@ -13,8 +13,8 @@ GRAY='\033[0;37m'
 NC='\033[0m' # No Color
 
 # Default paths
-CONFIG_FILE="bmad/config.yaml"
-STATUS_FILE="docs/bmm-workflow-status.yaml"
+CONFIG_FILE="accbmad/config.yaml"
+STATUS_FILE="accbmad/status.yaml"
 
 # Check if project is initialized
 if [ ! -f "$CONFIG_FILE" ]; then

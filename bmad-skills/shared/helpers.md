@@ -6,11 +6,11 @@ Reusable patterns for all BMAD skills. Reference specific sections to avoid repe
 
 ### Load-Project-Config
 ```
-Path: bmad/config.yaml
+Path: accbmad/config.yaml
 Purpose: Load project-specific BMAD configuration
 
 Steps:
-1. Read bmad/config.yaml
+1. Read accbmad/config.yaml
 2. Parse YAML to extract:
    - project.name
    - project.type
@@ -256,7 +256,7 @@ Load content only when needed:
 
 ### Config-Not-Found
 ```
-If bmad/config.yaml missing:
+If accbmad/config.yaml missing:
 1. Inform user: "BMAD not initialized in this project"
 2. Offer: "Run /workflow-init to set up BMAD"
 3. Provide quick setup option

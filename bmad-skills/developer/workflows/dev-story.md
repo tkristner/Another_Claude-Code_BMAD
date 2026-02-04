@@ -10,7 +10,7 @@
 
 **Trigger keywords:** dev story, implement story, dev STORY-ID, implement STORY-ID, full implementation, story implementation
 
-**Inputs:** Story file from `docs/stories/STORY-*.md` or direct story ID
+**Inputs:** Story file from `accbmad/4-implementation/stories/STORY-*.md` or direct story ID
 
 **Output:** Working, tested code with code review completed
 
@@ -40,8 +40,8 @@ Use **Quick-Dev** when:
 ## Pre-Flight
 
 1. **Capture baseline commit** - `git rev-parse HEAD`
-2. **Load project context** - Check for `CLAUDE.md` or `bmad/config.yaml`
-3. **Verify story exists** - Find in `docs/stories/` or sprint status
+2. **Load project context** - Check for `CLAUDE.md` or `accbmad/config.yaml`
+3. **Verify story exists** - Find in `accbmad/4-implementation/stories/` or sprint status
 4. **Check dependencies** - Ensure blockers are resolved
 
 ---
@@ -55,13 +55,13 @@ Use **Quick-Dev** when:
 1. **User-Specified Story**
 
    If user provides story ID (e.g., "STORY-2-3" or "2-3"):
-   - Find matching file in `docs/stories/`
+   - Find matching file in `accbmad/4-implementation/stories/`
    - Load complete story document
    - Proceed to Step 2
 
 2. **Auto-Discovery**
 
-   If no story specified and `docs/sprint-status.yaml` exists:
+   If no story specified and `accbmad/4-implementation/sprint.yaml` exists:
    - Parse YAML to find stories with status "ready-for-dev"
    - If multiple found: present list for selection
    - If one found: present for confirmation
@@ -120,7 +120,7 @@ Use **Quick-Dev** when:
 
 2. **Load Architecture Context**
 
-   From `docs/architecture-*.md`:
+   From `accbmad/3-solutioning/architecture-*.md`:
    - Relevant component patterns
    - API conventions
    - Data model design
@@ -454,7 +454,7 @@ All tests still passing: ✓
 
 2. **Update Sprint Status**
 
-   If `docs/sprint-status.yaml` exists:
+   If `accbmad/4-implementation/sprint.yaml` exists:
    - Update story status to "done"
    - Add completion timestamp
 
@@ -776,7 +776,7 @@ For complex stories, use parallel agents to maximize efficiency.
 
 **Tool Usage:**
 - Use `git rev-parse HEAD` to capture baseline
-- Use Glob to find story files: `docs/stories/STORY-*.md`
+- Use Glob to find story files: `accbmad/4-implementation/stories/STORY-*.md`
 - Use Read to load story and architecture
 - Use Edit/Write to implement changes
 - Use Bash to run tests

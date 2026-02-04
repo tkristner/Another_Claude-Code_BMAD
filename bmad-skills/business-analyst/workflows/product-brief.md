@@ -10,7 +10,7 @@
 
 **Inputs:** User's product idea or problem statement
 
-**Output:** Complete product brief document at `docs/product-brief-{{project_name}}-{{date}}.md`
+**Output:** Complete product brief document at `accbmad/1-analysis/product-brief-{{project_name}}-{{date}}.md`
 
 **Duration:** 45-90 minutes
 
@@ -61,11 +61,11 @@ data:
    - Offer to resume or restart
 
 2. **Load project configuration**
-   - Check for `bmad/config.yaml`
+   - Check for `accbmad/config.yaml`
    - Note project level for recommendations
 
 3. **Check workflow status**
-   - Read `docs/bmm-workflow-status.yaml`
+   - Read `accbmad/status.yaml`
    - Warn if product brief already exists
 
 ---
@@ -153,14 +153,14 @@ On workflow completion:
 
 **State Dependencies:**
 - Creates: Product Brief document
-- Updates: `bmad/workflow-state.yaml`, `docs/bmm-workflow-status.yaml`
+- Updates: `bmad/workflow-state.yaml`, `accbmad/status.yaml`
 - Enables: PRD workflow
 
 ---
 
 ## Output
 
-Final deliverable: `docs/product-brief-{{project_name}}-{{date}}.md`
+Final deliverable: `accbmad/1-analysis/product-brief-{{project_name}}-{{date}}.md`
 
 Uses template: [product-brief.template.md](../templates/product-brief.template.md)
 

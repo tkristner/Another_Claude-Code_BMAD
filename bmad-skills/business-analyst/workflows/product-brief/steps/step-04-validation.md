@@ -50,7 +50,7 @@ If any section is incomplete, ask targeted questions to fill it.
 Generate brief using:
 - Template: `templates/product-brief.template.md`
 - State data: `bmad/workflow-state.yaml`
-- Output: `docs/product-brief-{{project_name_slug}}.md`
+- Output: `accbmad/1-analysis/product-brief-{{project_name_slug}}.md`
 
 ### Approval Prompt
 
@@ -78,13 +78,13 @@ How would you like to proceed?
 ### On Completion
 
 1. Save document to `docs/`
-2. Update `docs/bmm-workflow-status.yaml`
+2. Update `accbmad/status.yaml`
 3. Clear workflow state
 4. Show completion message with next steps
 
 ```
 Product Brief Complete!
-Document: docs/product-brief-{{project_name}}.md
+Document: accbmad/1-analysis/product-brief-{{project_name}}.md
 
 Next Steps:
 1. Share with stakeholders

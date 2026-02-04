@@ -49,7 +49,7 @@ The PRD is validated across multiple quality dimensions:
    - Load specified file
 
    If no path:
-   - Search for `docs/*prd*.md` or `docs/prd-*.md`
+   - Search for `docs/*prd*.md` or `accbmad/2-planning/prd-*.md`
    - If multiple found, ask user to select
 
 2. **Verify PRD Structure**
@@ -345,7 +345,7 @@ Each dimension scored 1-10:
 ## Example Session
 
 ```
-User: /validate-prd docs/prd-ecommerce.md
+User: /validate-prd accbmad/2-planning/prd-ecommerce.md
 
 Validate PRD: Loading PRD...
 

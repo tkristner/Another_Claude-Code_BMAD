@@ -219,9 +219,9 @@ This skill leverages parallel subagents to maximize context utilization (each ag
 
 | Agent | Task | Output |
 |-------|------|--------|
-| Agent 1 | Refine and detail STORY-001 with full acceptance criteria | docs/stories/STORY-001.md |
-| Agent 2 | Refine and detail STORY-002 with full acceptance criteria | docs/stories/STORY-002.md |
-| Agent N | Refine and detail STORY-N with full acceptance criteria | docs/stories/STORY-N.md |
+| Agent 1 | Refine and detail STORY-001 with full acceptance criteria | accbmad/4-implementation/stories/STORY-001.md |
+| Agent 2 | Refine and detail STORY-002 with full acceptance criteria | accbmad/4-implementation/stories/STORY-002.md |
+| Agent N | Refine and detail STORY-N with full acceptance criteria | accbmad/4-implementation/stories/STORY-N.md |
 
 **Coordination:**
 1. Identify stories needing detailed refinement (typically 5-15 stories)

@@ -16,9 +16,9 @@ project:
 
 paths:
   output_folder: "docs"
-  stories_folder: "docs/stories"
-  status_file: "docs/bmm-workflow-status.yaml"
-  sprint_file: "docs/sprint-status.yaml"
+  stories_folder: "accbmad/4-implementation/stories"
+  status_file: "accbmad/status.yaml"
+  sprint_file: "accbmad/4-implementation/sprint.yaml"
 
 workflow:
   # Phase requirements based on project level

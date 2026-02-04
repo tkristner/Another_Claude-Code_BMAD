@@ -12,7 +12,7 @@
 
 **Inputs:** Epic definition (from `docs/epics.md` or direct input), PRD, Architecture (optional)
 
-**Output:** `docs/stories/STORY-{epic}-{num}-{slug}.md`
+**Output:** `accbmad/4-implementation/stories/STORY-{epic}-{num}-{slug}.md`
 
 **Duration:** 15-30 minutes per story
 
@@ -45,7 +45,7 @@ Use this workflow when:
 
 ## Pre-Flight
 
-1. **Load project context** - Check for `bmad/config.yaml` or `CLAUDE.md`
+1. **Load project context** - Check for `accbmad/config.yaml` or `CLAUDE.md`
 2. **Check for epics** - Search `docs/epics.md` for story definitions
 3. **Load architecture** - Search `docs/*architecture*.md` for technical constraints
 4. **Check sprint status** - If exists, find next story to create
@@ -67,7 +67,7 @@ Use this workflow when:
 
 2. **Auto-Discovery from Sprint Status**
 
-   If no story specified and `docs/sprint-status.yaml` exists:
+   If no story specified and `accbmad/4-implementation/sprint.yaml` exists:
    - Open and parse the YAML file
    - Search for stories with status: "backlog" or "pending"
    - If multiple found: present list for selection
@@ -118,7 +118,7 @@ Use this workflow when:
 
 2. **Load Architecture Context**
 
-   From `docs/architecture-*.md`, extract:
+   From `accbmad/3-solutioning/architecture-*.md`, extract:
    - Tech stack and frameworks
    - Relevant component design
    - API patterns and conventions
@@ -135,7 +135,7 @@ Use this workflow when:
 
 4. **Check PRD for Details**
 
-   From `docs/prd-*.md`, extract:
+   From `accbmad/2-planning/prd-*.md`, extract:
    - Detailed FR requirements
    - User personas and needs
    - Edge cases mentioned
@@ -381,9 +381,9 @@ So that it works
 
 **Objective:** Create the final story file.
 
-**Output Location:** `docs/stories/STORY-{epic}-{num}-{slug}.md`
+**Output Location:** `accbmad/4-implementation/stories/STORY-{epic}-{num}-{slug}.md`
 
-**Example:** `docs/stories/STORY-2-3-password-reset.md`
+**Example:** `accbmad/4-implementation/stories/STORY-2-3-password-reset.md`
 
 **Document Structure:**
 
@@ -476,7 +476,7 @@ So that **{value}**
 
 1. **Update Status File**
 
-   If `docs/sprint-status.yaml` exists:
+   If `accbmad/4-implementation/sprint.yaml` exists:
    - Update story status from "backlog" to "ready-for-dev"
    - Update epic status to "in-progress" if first story
 
@@ -485,7 +485,7 @@ So that **{value}**
    ```
    Story Created!
 
-   File: docs/stories/STORY-{epic}-{num}-{slug}.md
+   File: accbmad/4-implementation/stories/STORY-{epic}-{num}-{slug}.md
    Status: ready-for-dev
    Points: {estimate}
 
@@ -511,8 +511,8 @@ For large epics with many stories, use parallel story creation:
 
 | Agent | Task | Output |
 |-------|------|--------|
-| Agent 1 | Create stories 1-3 | `docs/stories/STORY-{epic}-{1,2,3}-*.md` |
-| Agent 2 | Create stories 4-6 | `docs/stories/STORY-{epic}-{4,5,6}-*.md` |
+| Agent 1 | Create stories 1-3 | `accbmad/4-implementation/stories/STORY-{epic}-{1,2,3}-*.md` |
+| Agent 2 | Create stories 4-6 | `accbmad/4-implementation/stories/STORY-{epic}-{4,5,6}-*.md` |
 
 **Coordination:**
 1. Main context gathers all shared context (architecture, PRD)
@@ -529,7 +529,7 @@ For large epics with many stories, use parallel story creation:
 - Use Glob to find epics: `docs/epics.md`
 - Use Glob to find architecture: `docs/*architecture*.md`
 - Use Read to load documents completely
-- Use Write to save story document to `docs/stories/`
+- Use Write to save story document to `accbmad/4-implementation/stories/`
 - Create stories directory if it doesn't exist
 
 **Key Principles:**

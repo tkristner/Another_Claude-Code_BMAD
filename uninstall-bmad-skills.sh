@@ -115,24 +115,16 @@ cleanup_project() {
 
     log_info "Cleaning up BMAD files in project: ${project_dir}"
 
-    # Remove bmad/ directory
+    # Remove accbmad/ directory (all BMAD project files)
+    if [[ -d "${project_dir}/accbmad" ]]; then
+        rm -rf "${project_dir}/accbmad"
+        log_success "Removed: accbmad/"
+    fi
+
+    # Remove legacy bmad/ directory if exists
     if [[ -d "${project_dir}/bmad" ]]; then
         rm -rf "${project_dir}/bmad"
-        log_success "Removed: bmad/"
-    fi
-
-    # Remove BMAD status files
-    local status_file="${project_dir}/docs/bmm-workflow-status.yaml"
-    if [[ -f "${status_file}" ]]; then
-        rm -f "${status_file}"
-        log_success "Removed: docs/bmm-workflow-status.yaml"
-    fi
-
-    # Remove sprint status
-    local sprint_file="${project_dir}/docs/sprint-status.yaml"
-    if [[ -f "${sprint_file}" ]]; then
-        rm -f "${sprint_file}"
-        log_success "Removed: docs/sprint-status.yaml"
+        log_success "Removed: bmad/ (legacy)"
     fi
 
     # Remove project-level commands

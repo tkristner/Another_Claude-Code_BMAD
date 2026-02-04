@@ -33,7 +33,7 @@ if [ $# -eq 0 ]; then
     echo -e "${RED}Error: No file specified${NC}"
     echo "Usage: $0 <product-brief-file>"
     echo ""
-    echo "Example: $0 docs/product-brief-my-project.md"
+    echo "Example: $0 accbmad/1-analysis/product-brief-my-project.md"
     exit 1
 fi
 

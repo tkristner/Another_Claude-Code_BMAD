@@ -79,14 +79,7 @@ PHASE-*-COMPLETE.md
 reference/
 
 # BMAD project working directories (not for distribution)
-bmad/
-docs/stories/
-docs/sprint-plan-*.md
-docs/bmm-workflow-status.yaml
-docs/product-brief-*.md
-docs/prd-*.md
-docs/architecture-*.md
-docs/sprint-status.yaml
+accbmad/
 audit/
 docs/claude_code_docs/
 

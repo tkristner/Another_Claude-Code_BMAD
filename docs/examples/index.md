@@ -55,7 +55,7 @@ I recommend Level 2 (5-15 stories).
 Project level?
 > 2
 
-Created bmad/config.yaml
+Created accbmad/config.yaml
 Next step: /product-brief
 ~~~~
 
@@ -96,7 +96,7 @@ Who uses this API?
 > - Support 1000 requests/second at peak
 > - GDPR compliant for EU customers
 
-Saving to: docs/product-brief.md
+Saving to: accbmad/1-analysis/product-brief.md
 ~~~~
 
 ### Step 3: PRD
@@ -106,7 +106,7 @@ User: /prd
 
 Claude: Creating PRD based on product brief...
 
-Loading: docs/product-brief.md
+Loading: accbmad/1-analysis/product-brief.md
 
 ## Functional Requirements
 
@@ -196,7 +196,7 @@ Loading: docs/product-brief.md
 - Total points: 73
 - Estimated sprints: 3
 
-Saving to: docs/prd.md
+Saving to: accbmad/2-planning/prd.md
 ~~~~
 
 ### Step 4: Architecture
@@ -206,7 +206,7 @@ User: /architecture
 
 Claude: Designing system architecture...
 
-Loading: docs/prd.md
+Loading: accbmad/2-planning/prd.md
 
 ## System Overview
 
@@ -345,7 +345,7 @@ CREATE TABLE inventory (
 | Cache | Redis 7 | Fast, versatile |
 | Gateway | Kong | Open source, plugins |
 
-Saving to: docs/architecture.md
+Saving to: accbmad/3-solutioning/architecture.md
 ~~~~
 
 ### Step 5: Sprint Planning
@@ -355,7 +355,7 @@ User: /sprint-planning
 
 Claude: Planning sprints for E-commerce Product Catalog API...
 
-Loading: docs/prd.md, docs/architecture.md
+Loading: accbmad/2-planning/prd.md, accbmad/3-solutioning/architecture.md
 
 ## Sprint Breakdown
 
@@ -400,8 +400,8 @@ Loading: docs/prd.md, docs/architecture.md
 
 **Deliverable:** Full MVP ready for client integration
 
-Saving to: docs/sprint-status.yaml
-Creating stories in: docs/stories/
+Saving to: accbmad/4-implementation/sprint.yaml
+Creating stories in: accbmad/4-implementation/stories/
 ~~~~
 
 ### Step 6: Implementation
@@ -498,7 +498,7 @@ Running migration: npx sequelize-cli db:migrate
 Running tests: npm test -- --grep "Product"
 ✓ All tests pass
 
-Story complete! Updating docs/stories/STORY-001.md
+Story complete! Updating accbmad/4-implementation/stories/STORY-001.md
 ~~~~
 
 ### Final Result
@@ -507,7 +507,7 @@ After completing all sprints, you have:
 
 ```
 ecommerce-catalog-api/
-├── bmad/
+├── accbmad/
 │   └── config.yaml
 ├── docs/
 │   ├── product-brief.md
@@ -605,7 +605,7 @@ md2html -w -o build/readme.html README.md
 3. **Output file and batch conversion** (2 pts)
 4. **Watch mode** (1 pt)
 
-Saving to: docs/tech-spec.md
+Saving to: accbmad/2-planning/tech-spec.md
 
 User: /sprint-planning
 [Single sprint with 4 stories]
@@ -662,7 +662,7 @@ SESSION_TIMEOUT: 3600000,
 - [ ] Existing sessions not affected
 - [ ] No breaking changes
 
-Saving to: docs/tech-spec.md
+Saving to: accbmad/2-planning/tech-spec.md
 
 User: /dev-story STORY-001
 
@@ -781,7 +781,7 @@ Background: #F7F7F7
 - [ ] VoiceOver/TalkBack labels
 - [ ] Reduced motion option
 
-Saving to: docs/ux-design.md
+Saving to: accbmad/2-planning/ux-design.md
 
 User: /architecture
 

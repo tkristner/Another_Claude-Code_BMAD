@@ -31,9 +31,9 @@ Use this workflow when:
 
 ## Pre-Flight
 
-1. **Load project context** - Check for `bmad/config.yaml` or `CLAUDE.md`
+1. **Load project context** - Check for `accbmad/config.yaml` or `CLAUDE.md`
 2. **Identify scope** - Sprint number or Epic number to review
-3. **Load sprint status** - Check `docs/sprint-status.yaml` for completion status
+3. **Load sprint status** - Check `accbmad/4-implementation/sprint.yaml` for completion status
 4. **Find story files** - Gather completed stories for analysis
 
 ---
@@ -64,7 +64,7 @@ Use this workflow when:
 2. **Load Completed Stories**
 
    For the sprint/epic being reviewed:
-   - Find all story files in `docs/stories/`
+   - Find all story files in `accbmad/4-implementation/stories/`
    - Extract story outcomes (done/blocked/carried over)
    - Note any dev notes or challenges documented
 
@@ -380,7 +380,7 @@ participants: Scrum Master (AI), User
 
 2. **Update Sprint Status**
 
-   If `docs/sprint-status.yaml` exists:
+   If `accbmad/4-implementation/sprint.yaml` exists:
    - Mark retrospective as completed
    - Update any relevant tracking
 
@@ -510,7 +510,7 @@ Retrospective is complete when:
 ## Notes for Claude
 
 **Tool Usage:**
-- Use Glob to find story files: `docs/stories/*.md`
+- Use Glob to find story files: `accbmad/4-implementation/stories/*.md`
 - Use Read to load stories and previous retrospectives
 - Use Write to save retrospective document
 - Use TodoWrite to track action items

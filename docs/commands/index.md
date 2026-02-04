@@ -92,7 +92,7 @@ Initialize BMAD in your project. This creates the project configuration and sets
 
 **When to use:** At the start of any new project
 
-**Output:** `bmad/config.yaml`
+**Output:** `accbmad/config.yaml`
 
 #### Example
 
@@ -136,25 +136,25 @@ Select level (0-4):
 ## Created Configuration
 
 ```yaml
-# bmad/config.yaml
+# accbmad/config.yaml
 project_name: "Real-time Chat Application"
 project_type: "web-app"
 project_level: 2
 output_folder: "docs"
 
 bmm:
-  workflow_status_file: "docs/bmm-workflow-status.yaml"
-  sprint_status_file: "docs/sprint-status.yaml"
+  workflow_status_file: "accbmad/status.yaml"
+  sprint_status_file: "accbmad/4-implementation/sprint.yaml"
 
 paths:
   docs: "docs"
-  stories: "docs/stories"
+  stories: "accbmad/4-implementation/stories"
   tests: "tests"
 ```
 
 Created directories:
 - docs/
-- docs/stories/
+- accbmad/4-implementation/stories/
 
 Project initialized! Run /workflow-status to see next steps.
 ~~~~
@@ -185,8 +185,8 @@ Claude: ## Real-time Chat Application - Workflow Status
 
 | Phase | Document | Status | File |
 |-------|----------|--------|------|
-| 1 - Analysis | Product Brief | ✓ Complete | docs/product-brief.md |
-| 2 - Planning | PRD | ✓ Complete | docs/prd.md |
+| 1 - Analysis | Product Brief | ✓ Complete | accbmad/1-analysis/product-brief.md |
+| 2 - Planning | PRD | ✓ Complete | accbmad/2-planning/prd.md |
 | 2 - Planning | UX Design | Optional | - |
 | 3 - Solutioning | Architecture | ⚠ In Progress | - |
 | 4 - Implementation | Sprint Plan | Pending | - |
@@ -216,7 +216,7 @@ Create a comprehensive product brief that defines the problem space, target audi
 
 **When to use:** Starting a new product (Level 1+, required for Level 2+)
 
-**Output:** `docs/product-brief.md`
+**Output:** `accbmad/1-analysis/product-brief.md`
 
 **Prerequisite:** `/workflow-init`
 
@@ -301,7 +301,7 @@ Risks:
 > - Slack network effects
 > - Feature parity expectations
 
-Saving product brief to: docs/product-brief.md
+Saving product brief to: accbmad/1-analysis/product-brief.md
 
 Product brief complete! Run /workflow-status for next steps.
 ```
@@ -316,9 +316,9 @@ Create a Product Requirements Document with detailed functional requirements, us
 
 **When to use:** Level 2+ projects after product brief
 
-**Output:** `docs/prd.md`
+**Output:** `accbmad/2-planning/prd.md`
 
-**Prerequisite:** `docs/product-brief.md`
+**Prerequisite:** `accbmad/1-analysis/product-brief.md`
 
 #### Example
 
@@ -327,7 +327,7 @@ User: /prd
 
 Claude: I'll create a PRD based on your product brief.
 
-Loading: docs/product-brief.md
+Loading: accbmad/1-analysis/product-brief.md
 
 ## Functional Requirements
 
@@ -493,7 +493,7 @@ Points: 5 | Priority: Must
 - **Must-have points:** 89
 - **Estimated MVP sprints:** 4 (at 25 pts/sprint)
 
-Saving PRD to: docs/prd.md
+Saving PRD to: accbmad/2-planning/prd.md
 ```
 
 ---
@@ -504,7 +504,7 @@ Create a lightweight technical specification for Level 0-1 projects. Simpler tha
 
 **When to use:** Level 0-1 projects (small features, bug fixes)
 
-**Output:** `docs/tech-spec.md`
+**Output:** `accbmad/2-planning/tech-spec.md`
 
 **Prerequisite:** `/workflow-init`
 
@@ -582,7 +582,7 @@ Expiration note: "This link expires in 1 hour"
 
 2-3 points (half day to one day)
 
-Saving tech spec to: docs/tech-spec.md
+Saving tech spec to: accbmad/2-planning/tech-spec.md
 ~~~~
 
 ---
@@ -593,7 +593,7 @@ Create a quick technical specification through conversational elicitation. Ideal
 
 **When to use:** Small focused features, bug fixes requiring spec, rapid prototyping
 
-**Output:** `docs/tech-spec-quick-{feature}.md`
+**Output:** `accbmad/2-planning/tech-spec-quick-{feature}.md`
 
 **Duration:** 15-45 minutes
 
@@ -619,7 +619,7 @@ Questions:
 
 Generating spec...
 
-Output: docs/tech-spec-quick-export-orders-csv-2026-02-02.md
+Output: accbmad/2-planning/tech-spec-quick-export-orders-csv-2026-02-02.md
 
 Ready for /quick-dev
 ```
@@ -639,7 +639,7 @@ Validate a PRD against quality criteria before proceeding to architecture.
 #### Example
 
 ```
-User: /validate-prd docs/prd-inventory.md
+User: /validate-prd accbmad/2-planning/prd-inventory.md
 
 Claude: Validating PRD...
 
@@ -675,9 +675,9 @@ Create UX designs including user flows, wireframes, and design system specificat
 
 **When to use:** Level 2+ projects with user interfaces
 
-**Output:** `docs/ux-design.md`
+**Output:** `accbmad/2-planning/ux-design.md`
 
-**Prerequisite:** `docs/prd.md`
+**Prerequisite:** `accbmad/2-planning/prd.md`
 
 #### Example
 
@@ -686,7 +686,7 @@ User: /create-ux-design
 
 Claude: I'll create UX designs for Real-time Chat Application.
 
-Loading: docs/prd.md
+Loading: accbmad/2-planning/prd.md
 
 ## User Personas
 
@@ -870,7 +870,7 @@ Mobile layout: Sidebar as overlay, single column
 Tablet: Collapsible sidebar
 Desktop: Full three-column layout
 
-Saving UX design to: docs/ux-design.md
+Saving UX design to: accbmad/2-planning/ux-design.md
 ~~~~
 
 ---
@@ -883,9 +883,9 @@ Design the system architecture including components, data models, APIs, and tech
 
 **When to use:** Level 2+ projects after PRD
 
-**Output:** `docs/architecture.md`
+**Output:** `accbmad/3-solutioning/architecture.md`
 
-**Prerequisite:** `docs/prd.md`
+**Prerequisite:** `accbmad/2-planning/prd.md`
 
 #### Example
 
@@ -901,7 +901,7 @@ Validate that the architecture addresses all requirements from the PRD.
 
 **Output:** Status display (no file)
 
-**Prerequisites:** `docs/prd.md`, `docs/architecture.md`
+**Prerequisites:** `accbmad/2-planning/prd.md`, `accbmad/3-solutioning/architecture.md`
 
 #### Example
 
@@ -910,7 +910,7 @@ User: /solutioning-gate-check
 
 Claude: I'll validate your architecture against the PRD.
 
-Loading: docs/prd.md, docs/architecture.md
+Loading: accbmad/2-planning/prd.md, accbmad/3-solutioning/architecture.md
 
 ## Functional Requirements Check
 
@@ -1009,9 +1009,9 @@ Claude: I'll perform an implementation readiness assessment.
 
 ## Document Discovery
 
-**PRD:** ✓ docs/prd-chat-app-2026-01-15.md
-**Architecture:** ✓ docs/architecture-chat-app-2026-01-20.md
-**Epics/Stories:** ✓ 12 stories in docs/stories/
+**PRD:** ✓ accbmad/2-planning/prd-chat-app-2026-01-15.md
+**Architecture:** ✓ accbmad/3-solutioning/architecture-chat-app-2026-01-20.md
+**Epics/Stories:** ✓ 12 stories in accbmad/4-implementation/stories/
 
 ## PRD Analysis
 
@@ -1138,9 +1138,9 @@ Break down the PRD into stories and plan sprint iterations.
 
 **When to use:** After architecture is complete
 
-**Output:** `docs/sprint-status.yaml`, `docs/stories/*.md`
+**Output:** `accbmad/4-implementation/sprint.yaml`, `accbmad/4-implementation/stories/*.md`
 
-**Prerequisites:** `docs/prd.md`, `docs/architecture.md`
+**Prerequisites:** `accbmad/2-planning/prd.md`, `accbmad/3-solutioning/architecture.md`
 
 #### Example
 
@@ -1154,7 +1154,7 @@ Create a single user story with acceptance criteria and implementation notes.
 
 **When to use:** Need to add a story outside of sprint planning
 
-**Output:** `docs/stories/STORY-XXX.md`
+**Output:** `accbmad/4-implementation/stories/STORY-XXX.md`
 
 #### Example
 
@@ -1236,8 +1236,8 @@ so that I can quickly acknowledge or respond without typing.
 [To be filled during development]
 ```
 
-Saved to: docs/stories/STORY-029.md
-Updated: docs/sprint-status.yaml (added to backlog)
+Saved to: accbmad/4-implementation/stories/STORY-029.md
+Updated: accbmad/4-implementation/sprint.yaml (added to backlog)
 ```
 
 ---
@@ -1266,7 +1266,7 @@ Autonomous sprint execution - processes all pending stories automatically with i
 
 **Output:** Implemented stories with commits on develop branch
 
-**Prerequisite:** `docs/sprint-status.yaml` with stories marked `pending` or `ready-for-dev`
+**Prerequisite:** `accbmad/4-implementation/sprint.yaml` with stories marked `pending` or `ready-for-dev`
 
 #### How It Works
 
@@ -1375,7 +1375,7 @@ Transform PRD requirements into user-value-focused epics and detailed stories.
 
 **Output:** `docs/epics.md`
 
-**Prerequisite:** `docs/prd.md`
+**Prerequisite:** `accbmad/2-planning/prd.md`
 
 #### Key Principles
 
@@ -1453,7 +1453,7 @@ Quick implementation workflow with built-in adversarial code review. Pairs with 
 #### Example
 
 ```
-User: /quick-dev docs/tech-spec-quick-export-csv.md
+User: /quick-dev accbmad/2-planning/tech-spec-quick-export-csv.md
 
 Claude: Loading spec...
 

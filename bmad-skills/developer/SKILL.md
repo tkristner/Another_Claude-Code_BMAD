@@ -465,7 +465,7 @@ This skill leverages parallel subagents to maximize context utilization (each ag
 ### Example Subagent Prompt
 ```
 Task: Implement user login functionality (STORY-002)
-Context: Read docs/stories/STORY-002.md for requirements and acceptance criteria
+Context: Read accbmad/4-implementation/stories/STORY-002.md for requirements and acceptance criteria
 Objective: Implement complete user login feature with backend, frontend, and tests
 Output: Code changes committed to feature/STORY-002 branch
 

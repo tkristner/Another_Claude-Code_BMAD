@@ -8,7 +8,7 @@
 # Usage:
 #   bash generate-story-id.sh [project-name] [stories-directory]
 #   bash generate-story-id.sh my-project
-#   bash generate-story-id.sh my-project docs/stories/
+#   bash generate-story-id.sh my-project accbmad/4-implementation/stories/
 #
 # Output:
 #   STORY-001 (if no stories exist)
@@ -22,7 +22,7 @@ set -euo pipefail
 
 # Default values
 PROJECT_NAME="${1:-}"
-STORIES_DIR="${2:-docs/stories}"
+STORIES_DIR="${2:-accbmad/4-implementation/stories}"
 SPRINT_STATUS_FILE=".bmad/sprint-status.yaml"
 
 # Color codes for output
@@ -52,12 +52,12 @@ Generate the next sequential story ID for a project.
 
 Arguments:
   project-name       Optional. Project name (default: from sprint-status.yaml)
-  stories-directory  Optional. Directory to scan for stories (default: docs/stories)
+  stories-directory  Optional. Directory to scan for stories (default: accbmad/4-implementation/stories)
 
 Examples:
   $(basename "$0")
   $(basename "$0") my-project
-  $(basename "$0") my-project docs/stories/
+  $(basename "$0") my-project accbmad/4-implementation/stories/
 
 Output:
   STORY-001  (if no stories exist)

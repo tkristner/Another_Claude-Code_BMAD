@@ -78,7 +78,7 @@ A specification is "Ready for Development" ONLY when:
 
 5. **Initialize WIP File**
 
-   Create tech spec at `docs/tech-spec-{slug}-wip.md` using template.
+   Create tech spec at `accbmad/2-planning/tech-spec-{slug}-wip.md` using template.
 
 ---
 
@@ -142,7 +142,7 @@ A specification is "Ready for Development" ONLY when:
 
 4. **Finalize Tech Spec**
 
-   Move WIP file to final location: `docs/tech-spec-{slug}.md`
+   Move WIP file to final location: `accbmad/2-planning/tech-spec-{slug}.md`
 
 ---
 

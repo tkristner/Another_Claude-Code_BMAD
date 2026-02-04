@@ -12,15 +12,15 @@
 
 **Best for:** Level 2+ projects (5+ stories)
 
-**Output:** `docs/prd-{project-name}-{date}.md`
+**Output:** `accbmad/2-planning/prd-{project-name}-{date}.md`
 
 ---
 
 ## Pre-Flight
 
-1. Load project configuration from `bmad/config.yaml`
-2. Check workflow status in `docs/bmm-workflow-status.yaml`
-3. Load product brief if exists (`docs/product-brief-*.md`)
+1. Load project configuration from `accbmad/config.yaml`
+2. Check workflow status in `accbmad/status.yaml`
+3. Load product brief if exists (`accbmad/1-analysis/product-brief-*.md`)
 4. Load template `templates/prd.template.md` if available
 
 ---
@@ -197,7 +197,7 @@ For each epic, create 2-3 example stories:
    | EPIC-001 | User Management | FR-001, FR-002 | 5-8 stories |
    ```
 4. Generate prioritization summary (Must/Should/Could counts)
-5. Save to `docs/prd-{project-name}-{date}.md`
+5. Save to `accbmad/2-planning/prd-{project-name}-{date}.md`
 6. Display summary:
    ```
    PRD Created!
@@ -230,9 +230,9 @@ For each epic, create 2-3 example stories:
 
 ## Update Status
 
-Update `docs/bmm-workflow-status.yaml`:
+Update `accbmad/status.yaml`:
 ```yaml
-prd: "docs/prd-{project-name}-{date}.md"
+prd: "accbmad/2-planning/prd-{project-name}-{date}.md"
 last_updated: {date}
 ```
 

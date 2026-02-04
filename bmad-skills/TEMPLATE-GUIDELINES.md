@@ -250,8 +250,8 @@ For long-form content:
 Reference other project documents using relative paths:
 
 ```markdown
-See [Product Brief](docs/product-brief-{{project_name}}.md)
-Reference: `docs/prd-{{project_name}}.md`
+See [Product Brief](accbmad/1-analysis/product-brief-{{project_name}}.md)
+Reference: `accbmad/2-planning/prd-{{project_name}}.md`
 ```
 
 ### External References (BMAD Resources)
@@ -274,8 +274,8 @@ Include at the end of templates that reference other documents:
 
 | Document | Path | Relationship |
 |----------|------|--------------|
-| Product Brief | `docs/product-brief.md` | Input |
-| Architecture | `docs/architecture.md` | Output feeds into |
+| Product Brief | `accbmad/1-analysis/product-brief.md` | Input |
+| Architecture | `accbmad/3-solutioning/architecture.md` | Output feeds into |
 | Sprint Plan | `docs/sprint-plan.md` | Uses this document |
 ```
 

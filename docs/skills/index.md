@@ -115,7 +115,7 @@ I recommend Level 3 (Complex integration, 12-40 stories).
 Accept Level 3?
 > Yes
 
-Created bmad/config.yaml
+Created accbmad/config.yaml
 Recommended first step: /product-brief
 
 Your project is initialized! I'll route you to the appropriate
@@ -200,7 +200,7 @@ What are your business goals?
 > - 500 paying customers
 > - Integrations with top 5 sales platforms
 
-Saving product brief to: docs/product-brief.md
+Saving product brief to: accbmad/1-analysis/product-brief.md
 ```
 
 #### Output
@@ -251,7 +251,7 @@ User: /prd
 
 Product Manager: I'll create a PRD based on your product brief.
 
-Loading: docs/product-brief.md
+Loading: accbmad/1-analysis/product-brief.md
 
 ## Functional Requirements
 
@@ -322,7 +322,7 @@ Map products across channels (same product may have different SKUs)
 **Won't Have (this release):**
 - FR-008
 
-Saving PRD to: docs/prd.md
+Saving PRD to: accbmad/2-planning/prd.md
 ```
 
 #### Output
@@ -368,7 +368,7 @@ User: /create-ux-design
 
 UX Designer: I'll create UX designs for your inventory management system.
 
-Loading: docs/prd.md
+Loading: accbmad/2-planning/prd.md
 
 ## User Flows
 
@@ -443,7 +443,7 @@ Loading: docs/prd.md
 5. **Modal** - Confirmation, Form, Alert
 6. **Toast** - Success, Error, Warning, Info
 
-Saving UX design to: docs/ux-design.md
+Saving UX design to: accbmad/2-planning/ux-design.md
 ```
 
 #### Output
@@ -491,7 +491,7 @@ User: /architecture
 
 System Architect: I'll design the system architecture for your inventory management platform.
 
-Loading: docs/prd.md
+Loading: accbmad/2-planning/prd.md
 
 ## System Overview
 
@@ -648,7 +648,7 @@ List all inventory with filtering.
 | 10k SKUs | Database indexing, query optimization, caching |
 | Security | JWT + OAuth, encrypted secrets, audit logs |
 
-Saving architecture to: docs/architecture.md
+Saving architecture to: accbmad/3-solutioning/architecture.md
 ~~~~
 
 #### Output
@@ -699,7 +699,7 @@ User: /sprint-planning
 
 Scrum Master: I'll help plan sprints for your inventory management system.
 
-Loading: docs/prd.md, docs/architecture.md
+Loading: accbmad/2-planning/prd.md, accbmad/3-solutioning/architecture.md
 
 ## Story Breakdown
 
@@ -817,8 +817,8 @@ Focus: Nice-to-haves and refinement
 Accept this sprint plan?
 > Yes
 
-Saving to: docs/sprint-status.yaml
-Creating story files in: docs/stories/
+Saving to: accbmad/4-implementation/sprint.yaml
+Creating story files in: accbmad/4-implementation/stories/
 
 Sprint plan complete!
 ```
@@ -860,7 +860,7 @@ User: /dev-story STORY-014
 
 Developer: I'll implement STORY-014: Product CRUD.
 
-Loading: docs/stories/STORY-014.md
+Loading: accbmad/4-implementation/stories/STORY-014.md
 
 ## Story Details
 
@@ -1071,7 +1071,7 @@ All acceptance criteria met ✓
 
 ### Story Complete
 
-Updated: docs/stories/STORY-014.md
+Updated: accbmad/4-implementation/stories/STORY-014.md
 Status: Complete
 
 Next: /dev-story STORY-015
@@ -1406,19 +1406,19 @@ product-brief.md → prd.md → architecture.md → sprint-status.yaml → code
 
 ```
 User: /product-brief
-# Business Analyst creates docs/product-brief.md
+# Business Analyst creates accbmad/1-analysis/product-brief.md
 
 User: /prd
 # Product Manager reads product-brief.md
-# Creates docs/prd.md
+# Creates accbmad/2-planning/prd.md
 
 User: /architecture
 # System Architect reads prd.md
-# Creates docs/architecture.md
+# Creates accbmad/3-solutioning/architecture.md
 
 User: /sprint-planning
 # Scrum Master reads prd.md and architecture.md
-# Creates docs/sprint-status.yaml and docs/stories/
+# Creates accbmad/4-implementation/sprint.yaml and accbmad/4-implementation/stories/
 
 User: /dev-story STORY-001
 # Developer reads the story file and architecture

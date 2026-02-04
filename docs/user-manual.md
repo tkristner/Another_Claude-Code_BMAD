@@ -177,7 +177,7 @@ votre-projet/
 
 | Commande | Description | Output |
 |----------|-------------|--------|
-| `/product-brief` | Créer un brief produit complet | `docs/product-brief-*.md` |
+| `/product-brief` | Créer un brief produit complet | `accbmad/1-analysis/product-brief-*.md` |
 | `/brainstorm` | Session de brainstorming structurée | `docs/brainstorm-*.md` |
 | `/research` | Recherche marché/concurrence/technique | `docs/research-*.md` |
 
@@ -208,7 +208,7 @@ Est-ce correct ?
 
 [...suite interactive...]
 
-Enregistré : docs/product-brief-inventory-sync-2026-02-02.md
+Enregistré : accbmad/1-analysis/product-brief-inventory-sync-2026-02-02.md
 ```
 
 ---
@@ -255,7 +255,7 @@ Questions de clarification :
 
 [...raffinement...]
 
-Spec générée : docs/tech-spec-quick-list-orders-2026-02-02.md
+Spec générée : accbmad/2-planning/tech-spec-quick-list-orders-2026-02-02.md
 
 Prêt pour implémentation avec /quick-dev
 ```
@@ -265,7 +265,7 @@ Prêt pour implémentation avec /quick-dev
 Avant de passer à l'architecture, validez votre PRD :
 
 ```
-User: /validate-prd docs/prd-inventory-sync.md
+User: /validate-prd accbmad/2-planning/prd-inventory-sync.md
 
 Product Manager: Validation du PRD...
 
@@ -318,7 +318,7 @@ User: /architecture
 
 System Architect: Je vais concevoir l'architecture basée sur votre PRD.
 
-Chargement: docs/prd-inventory-sync.md
+Chargement: accbmad/2-planning/prd-inventory-sync.md
 
 ## Vue d'Ensemble
 
@@ -346,7 +346,7 @@ Architecture microservices event-driven :
 
 [...détails complets...]
 
-Enregistré : docs/architecture-inventory-sync-2026-02-02.md
+Enregistré : accbmad/3-solutioning/architecture-inventory-sync-2026-02-02.md
 ```
 
 ---
@@ -378,7 +378,7 @@ User: /create-epics-stories
 
 Scrum Master: Je vais créer la décomposition en epics et stories.
 
-Chargement: docs/prd-inventory-sync.md
+Chargement: accbmad/2-planning/prd-inventory-sync.md
 
 ## Design des Epics
 
@@ -503,7 +503,7 @@ Stories: 4/4 ✓
 Pour les petites implémentations après `/quick-spec` :
 
 ```
-User: /quick-dev docs/tech-spec-quick-list-orders.md
+User: /quick-dev accbmad/2-planning/tech-spec-quick-list-orders.md
 
 Developer: Implémentation de "List Orders by Date"
 
@@ -795,7 +795,7 @@ PM: Décrivez la feature.
 [Questions de clarification...]
 [Génération de la spec...]
 
-User: /quick-dev docs/tech-spec-quick-export-csv.md
+User: /quick-dev accbmad/2-planning/tech-spec-quick-export-csv.md
 
 Developer: Implémentation...
 [Code + Tests + Review intégré]
@@ -963,7 +963,7 @@ ls ~/.claude/skills/
 User: /workflow-status
 
 # Ou spécifier explicitement
-User: Charge le contexte de docs/prd-mon-projet.md
+User: Charge le contexte de accbmad/2-planning/prd-mon-projet.md
 ```
 
 ### Problème : Code review trouve 0 issues

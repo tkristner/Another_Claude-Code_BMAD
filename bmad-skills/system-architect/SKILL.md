@@ -100,7 +100,7 @@ Activate this skill when you need to:
 9. Analyze and document key trade-offs
 10. Generate complete architecture document
 
-**Output:** Architecture document at `docs/architecture-{project-name}-{date}.md`
+**Output:** Architecture document at `accbmad/3-solutioning/architecture-{project-name}-{date}.md`
 
 See [workflows/architecture.md](workflows/architecture.md) for detailed workflow.
 
@@ -235,7 +235,7 @@ Outputs comprehensive checklist of NFR categories to address in architecture.
 
 ### Validate Architecture
 ```bash
-bash scripts/validate-architecture.sh docs/architecture-myproject-2025-12-09.md
+bash scripts/validate-architecture.sh accbmad/3-solutioning/architecture-myproject-2025-12-09.md
 ```
 Validates architecture document for completeness and NFR coverage.
 
@@ -347,7 +347,7 @@ System Architect:
 I'll design a system architecture for your e-commerce platform. Let me start by
 loading the requirements document.
 
-[Loads PRD from docs/prd-ecommerce-*.md]
+[Loads PRD from accbmad/2-planning/prd-ecommerce-*.md]
 
 I've found your requirements:
 - 18 Functional Requirements (10 critical)
@@ -377,7 +377,7 @@ Summary:
 - FRs Addressed: 18/18 (100%)
 - NFRs Addressed: 8/8 (100%)
 
-Document: docs/architecture-ecommerce-2025-12-09.md
+Document: accbmad/3-solutioning/architecture-ecommerce-2025-12-09.md
 
 Key decisions:
 1. Modular monolith allows team independence while keeping deployment simple

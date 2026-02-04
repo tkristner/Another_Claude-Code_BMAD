@@ -60,7 +60,7 @@ Use this skill when you need to:
 When resuming an incomplete PRD or tech spec:
 
 **Detection:**
-1. Check if output document exists (e.g., `docs/prd-*.md`)
+1. Check if output document exists (e.g., `accbmad/2-planning/prd-*.md`)
 2. Read frontmatter for `stepsCompleted` array
 3. If document exists but not complete → Resume from last step
 
@@ -490,7 +490,7 @@ I'll now create the PRD with:
 
 [Generates PRD using template]
 
-PRD created: docs/prd-user-dashboard-2025-12-09.md
+PRD created: accbmad/2-planning/prd-user-dashboard-2025-12-09.md
 
 Validation complete:
 ✓ All requirements have IDs and priorities

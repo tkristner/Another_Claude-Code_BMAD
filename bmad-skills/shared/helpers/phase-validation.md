@@ -22,7 +22,7 @@ Run before `/prd` workflow:
 ```markdown
 ### Pre-PRD Validation
 
-- [ ] Product Brief exists at `docs/product-brief-*.md`
+- [ ] Product Brief exists at `accbmad/1-analysis/product-brief-*.md`
 - [ ] Brief has problem statement (≥3 sentences)
 - [ ] Brief has target users/personas defined
 - [ ] Brief has success metrics/KPIs (≥3 measurable)
@@ -46,7 +46,7 @@ Run before `/architecture` workflow:
 ```markdown
 ### Pre-Architecture Validation
 
-- [ ] PRD exists at `docs/prd-*.md`
+- [ ] PRD exists at `accbmad/2-planning/prd-*.md`
 - [ ] PRD has numbered FRs (FR-XXX format)
 - [ ] PRD has numbered NFRs (NFR-XXX format)
 - [ ] PRD scope is bounded (out-of-scope list exists)
@@ -72,7 +72,7 @@ Run before `/sprint-planning` workflow:
 ### Pre-Sprint Validation
 
 **For Level 2+ Projects:**
-- [ ] Architecture exists at `docs/architecture-*.md`
+- [ ] Architecture exists at `accbmad/3-solutioning/architecture-*.md`
 - [ ] Components are defined with responsibilities
 - [ ] Data model is documented
 - [ ] Tech stack decisions documented

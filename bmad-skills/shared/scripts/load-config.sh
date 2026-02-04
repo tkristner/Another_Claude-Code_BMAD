@@ -2,7 +2,7 @@
 # Load BMAD project configuration
 # Usage: source load-config.sh or ./load-config.sh
 
-CONFIG_FILE="bmad/config.yaml"
+CONFIG_FILE="accbmad/config.yaml"
 
 if [ ! -f "$CONFIG_FILE" ]; then
     echo "ERROR: BMAD not initialized. Run /workflow-init first."
@@ -42,7 +42,7 @@ STATUS_FILE=$(extract_nested_value "paths" "status_file" "$CONFIG_FILE")
 
 # Set defaults
 OUTPUT_FOLDER=${OUTPUT_FOLDER:-docs}
-STATUS_FILE=${STATUS_FILE:-docs/bmm-workflow-status.yaml}
+STATUS_FILE=${STATUS_FILE:-accbmad/status.yaml}
 
 # Output as environment variables or JSON
 if [ "$1" = "--json" ]; then
