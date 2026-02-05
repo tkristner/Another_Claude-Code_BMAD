@@ -1,4 +1,4 @@
-# Product Brief Workflow
+# [Business Analyst] Product Brief Workflow
 
 **Goal:** Create a comprehensive product brief through guided discovery
 
@@ -115,7 +115,7 @@ Would you like to:
 When starting fresh:
 
 ```yaml
-# bmad/workflow-state.yaml
+# [Business Analyst] bmad/workflow-state.yaml
 workflow: product-brief
 started: "2026-02-04T10:00:00Z"
 current_step: 1

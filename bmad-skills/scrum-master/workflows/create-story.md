@@ -1,4 +1,4 @@
-# Create Story Workflow
+# [Scrum Master] Create Story Workflow
 
 **Purpose:** Create implementation-ready user stories with comprehensive acceptance criteria and technical context to enable seamless developer handoff.
 
@@ -388,7 +388,7 @@ So that it works
 **Document Structure:**
 
 ```markdown
-# {Story Title}
+# [Scrum Master] {Story Title}
 
 **ID:** STORY-{epic}-{num}
 **Epic:** {Epic Number}: {Epic Name}

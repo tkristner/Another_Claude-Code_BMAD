@@ -1,4 +1,4 @@
-# Changelog Workflow
+# [Tech Writer] Changelog Workflow
 
 **Goal:** Maintain accurate changelog and release notes
 
@@ -41,7 +41,7 @@
 Follow [Keep a Changelog](https://keepachangelog.com/) format:
 
 ```markdown
-# Changelog
+# [Tech Writer] Changelog
 
 ## [Unreleased]
 
@@ -73,10 +73,10 @@ Follow [Keep a Changelog](https://keepachangelog.com/) format:
 ### Step 1: Gather Changes
 
 ```bash
-# Get commits since last tag
+# [Tech Writer] Get commits since last tag
 git log v1.1.0..HEAD --oneline
 
-# Get merged PRs
+# [Tech Writer] Get merged PRs
 gh pr list --state merged --base main
 ```
 

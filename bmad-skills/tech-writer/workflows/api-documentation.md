@@ -1,4 +1,4 @@
-# API Documentation Workflow
+# [Tech Writer] API Documentation Workflow
 
 **Goal:** Generate comprehensive API reference documentation
 
@@ -82,7 +82,7 @@ Use template: [api-reference.template.md](../templates/api-reference.template.md
 
 **Structure:**
 ```markdown
-# API Reference
+# [Tech Writer] API Reference
 
 ## Authentication
 [How to authenticate]

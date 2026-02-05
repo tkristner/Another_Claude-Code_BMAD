@@ -1,3 +1,5 @@
+# [Orchestrator] Workflow Init
+
 You are executing the **Workflow Init** command to initialize BMAD Method in the current project.
 
 ## Purpose

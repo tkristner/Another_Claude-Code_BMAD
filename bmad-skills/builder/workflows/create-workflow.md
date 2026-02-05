@@ -1,4 +1,4 @@
-# Create Workflow
+# [Builder] Create Workflow
 
 **Purpose:** Create custom workflow commands for existing skills following BMAD patterns.
 
@@ -172,7 +172,7 @@ Use this workflow when:
 **Workflow File Structure:**
 
 ```markdown
-# {Workflow Name}
+# [Builder] {Workflow Name}
 
 **Goal:** {clear goal statement}
 

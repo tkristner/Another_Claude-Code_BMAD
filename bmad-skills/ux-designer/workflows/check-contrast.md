@@ -1,4 +1,4 @@
-# Contrast Check Workflow
+# [UX Designer] Contrast Check Workflow
 
 **Purpose:** Validate color contrast ratios meet WCAG accessibility requirements.
 
@@ -108,7 +108,7 @@ Where L1 = relative luminance of lighter color
 **Report Format:**
 
 ```markdown
-# Color Contrast Report
+# [UX Designer] Color Contrast Report
 
 **Date:** [Date]
 **Checked by:** UX Designer (BMAD)
@@ -236,26 +236,26 @@ This workflow is complete when:
 
 **Direct script execution:**
 ```bash
-# Check single pair
+# [UX Designer] Check single pair
 python scripts/contrast-check.py "#333333" "#FFFFFF"
 
-# Output format:
-# Foreground: #333333
-# Background: #FFFFFF
-# Contrast Ratio: 12.63:1
-# Normal Text (4.5:1): PASS (AAA)
-# Large Text (3:1): PASS (AAA)
-# UI Components (3:1): PASS (AAA)
+# [UX Designer] Output format:
+# [UX Designer] Foreground: #333333
+# [UX Designer] Background: #FFFFFF
+# [UX Designer] Contrast Ratio: 12.63:1
+# [UX Designer] Normal Text (4.5:1): PASS (AAA)
+# [UX Designer] Large Text (3:1): PASS (AAA)
+# [UX Designer] UI Components (3:1): PASS (AAA)
 ```
 
 **Batch checking:**
 ```bash
-# Create a file with color pairs (colors.txt):
-# #333333 #FFFFFF
-# #0066CC #FFFFFF
-# #CCCCCC #FFFFFF
+# [UX Designer] Create a file with color pairs (colors.txt):
+# [UX Designer] #333333 #FFFFFF
+# [UX Designer] #0066CC #FFFFFF
+# [UX Designer] #CCCCCC #FFFFFF
 
-# Run batch check
+# [UX Designer] Run batch check
 while read fg bg; do
   python scripts/contrast-check.py "$fg" "$bg"
 done < colors.txt

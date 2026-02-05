@@ -1,4 +1,4 @@
-# Tech Spec Workflow
+# [Product Manager] Tech Spec Workflow
 
 **Goal:** Create focused technical specification for small projects
 

@@ -1,4 +1,4 @@
-# Create Architecture Workflow
+# [Architect] Create Architecture Workflow
 
 **Purpose:** Design comprehensive system architecture from PRD requirements, covering components, data model, APIs, and NFRs.
 
@@ -499,7 +499,7 @@ For complex projects (Level 3-4), use parallel analysis:
 For significant decisions, create ADR:
 
 ```markdown
-# ADR-{number}: {Title}
+# [Architect] ADR-{number}: {Title}
 
 **Status:** Proposed | Accepted | Deprecated | Superseded
 

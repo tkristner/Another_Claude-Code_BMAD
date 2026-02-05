@@ -1,4 +1,4 @@
-# Brainstorm Workflow
+# [Creative Intelligence] Brainstorm Workflow
 
 **Purpose:** Facilitate structured brainstorming sessions using proven creative techniques to generate ideas and actionable insights.
 
@@ -169,7 +169,7 @@ Format:
 
 **Document structure:**
 ```markdown
-# Brainstorming Session: {objective}
+# [Creative Intelligence] Brainstorming Session: {objective}
 
 **Date:** {date}
 **Objective:** {objective}

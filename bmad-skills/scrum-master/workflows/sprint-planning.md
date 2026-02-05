@@ -1,4 +1,4 @@
-# Sprint Planning Workflow
+# [Scrum Master] Sprint Planning Workflow
 
 **Goal:** Plan sprint iterations with detailed, estimated stories allocated by capacity
 
@@ -218,7 +218,7 @@ Capacity: 60 ÷ 2 = 30 points/sprint
 
 **Document structure:**
 ```markdown
-# Sprint Plan: {project_name}
+# [Scrum Master] Sprint Plan: {project_name}
 
 **Date:** {date}
 **Project Level:** {level}

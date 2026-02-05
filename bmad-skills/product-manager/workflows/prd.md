@@ -1,4 +1,4 @@
-# PRD (Product Requirements Document) Workflow
+# [Product Manager] PRD (Product Requirements Document) Workflow
 
 **Goal:** Create comprehensive PRD defining functional requirements, non-functional requirements, and epics
 

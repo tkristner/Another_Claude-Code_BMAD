@@ -1,4 +1,4 @@
-# Sprint Retrospective Workflow
+# [Scrum Master] Sprint Retrospective Workflow
 
 **Goal:** Facilitate sprint or epic retrospective to extract lessons learned, celebrate wins, identify improvements, and create actionable commitments.
 
@@ -295,7 +295,7 @@ date: {date}
 participants: Scrum Master (AI), User
 ---
 
-# Retrospective: {Sprint|Epic} {N}
+# [Scrum Master] Retrospective: {Sprint|Epic} {N}
 
 ## Summary
 

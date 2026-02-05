@@ -1,3 +1,5 @@
+# [Orchestrator] Solutioning Gate Check
+
 You are executing the **Solutioning Gate Check** command (alias for `/check-implementation-readiness`).
 
 ## Purpose

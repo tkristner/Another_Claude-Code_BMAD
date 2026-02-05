@@ -1,4 +1,4 @@
-# Validate PRD Workflow
+# [Product Manager] Validate PRD Workflow
 
 **Goal:** Systematically validate an existing PRD against quality criteria to ensure it's ready for architecture and implementation.
 
@@ -227,7 +227,7 @@ FR-001: [Status]
 **Report Format:**
 
 ```markdown
-# PRD Validation Report
+# [Product Manager] PRD Validation Report
 
 **Document:** {prd_name}
 **Validated:** {date}

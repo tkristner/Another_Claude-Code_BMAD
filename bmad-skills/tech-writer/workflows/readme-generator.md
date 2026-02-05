@@ -1,4 +1,4 @@
-# README Generator Workflow
+# [Tech Writer] README Generator Workflow
 
 **Goal:** Create comprehensive project README files
 
@@ -102,7 +102,7 @@ Save to: `README.md` (project root)
 ## README Sections Template
 
 ```markdown
-# Project Name
+# [Tech Writer] Project Name
 
 Brief description (1-2 sentences)
 

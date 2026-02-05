@@ -1,4 +1,4 @@
-# Expedited Fix Workflow
+# [Developer] Expedited Fix Workflow
 
 **Goal:** Rapidly fix urgent issues with minimal ceremony while maintaining quality and safety.
 
@@ -209,7 +209,7 @@ Resolves: {{issue_link_if_exists}}
 git add {{files}}
 git commit -m "fix({{scope}}): {{description}} [HOTFIX]"
 git push origin hotfix/{{issue_slug}}
-# Create PR → Quick review → Merge to main
+# [Developer] Create PR → Quick review → Merge to main
 ```
 
 ---
@@ -259,7 +259,7 @@ If fix causes issues:
 Save to: `docs/incidents/{{YYYY-MM-DD}}-{{slug}}.md`
 
 ```markdown
-# Incident: {{YYYY-MM-DD}} - {{brief_description}}
+# [Developer] Incident: {{YYYY-MM-DD}} - {{brief_description}}
 
 **Severity:** Critical | High | Medium
 **Duration:** {{start_time}} - {{end_time}} ({{total_minutes}} minutes)
@@ -328,7 +328,7 @@ Save to: `docs/incidents/{{YYYY-MM-DD}}-{{slug}}.md`
 If tracking in BMAD sprint, add hotfix entry:
 
 ```yaml
-# In sprint-status.yaml, add under current sprint stories:
+# [Developer] In sprint-status.yaml, add under current sprint stories:
 - story_id: "HOTFIX-{{YYYY-MM-DD}}"
   title: "{{brief_description}}"
   points: 1  # Expedited fixes count as 1 point

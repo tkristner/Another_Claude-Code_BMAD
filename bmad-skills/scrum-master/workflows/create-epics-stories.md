@@ -1,4 +1,4 @@
-# Create Epics and Stories Workflow
+# [Scrum Master] Create Epics and Stories Workflow
 
 **Goal:** Transform PRD requirements and Architecture decisions into comprehensive stories organized by user value, creating detailed, actionable stories with complete acceptance criteria.
 
@@ -393,7 +393,7 @@ prd_source: accbmad/2-planning/prd-{project}.md
 status: ready_for_sprint
 ---
 
-# {Project Name} - Epic Breakdown
+# [Scrum Master] {Project Name} - Epic Breakdown
 
 ## Overview
 

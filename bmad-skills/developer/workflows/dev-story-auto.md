@@ -1,4 +1,4 @@
-# Dev Story Auto Workflow
+# [Developer] Dev Story Auto Workflow
 
 **Goal:** Autonomous story implementation with automatic code review, fixes, and git management
 
@@ -36,7 +36,7 @@
 
 **Pre-Flight Checks:**
 ```bash
-# Must pass before starting
+# [Developer] Must pass before starting
 git status --porcelain  # Must be empty (clean)
 git branch --show-current  # Must be "develop"
 ```
@@ -50,11 +50,11 @@ For each story in queue:
 ### Step 1: Prepare Git Branch
 
 ```bash
-# Ensure we're on latest develop
+# [Developer] Ensure we're on latest develop
 git checkout develop
 git pull origin develop 2>/dev/null || true
 
-# Create story branch
+# [Developer] Create story branch
 git checkout -b story/{story-id}
 ```
 
@@ -113,10 +113,10 @@ Execute /code-review with AUTO_FIX=true
 Once code review passes:
 
 ```bash
-# Stage all changes
+# [Developer] Stage all changes
 git add -A
 
-# Commit with conventional format
+# [Developer] Commit with conventional format
 git commit -m "feat({scope}): {story-title}
 
 Implements story {story-id}
@@ -154,11 +154,11 @@ Co-Authored-By: Claude <noreply@anthropic.com>"
 Once final verification passes:
 
 ```bash
-# Merge to develop
+# [Developer] Merge to develop
 git checkout develop
 git merge story/{story-id} --no-ff -m "Merge story/{story-id}: {title}"
 
-# Delete story branch
+# [Developer] Delete story branch
 git branch -d story/{story-id}
 ```
 

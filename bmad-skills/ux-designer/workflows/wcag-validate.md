@@ -1,4 +1,4 @@
-# WCAG Validation Workflow
+# [UX Designer] WCAG Validation Workflow
 
 **Purpose:** Validate design or implementation against WCAG 2.1 AA accessibility standards.
 
@@ -216,7 +216,7 @@ Color Contrast Results:
 **Report Format:**
 
 ```markdown
-# WCAG 2.1 AA Compliance Report
+# [UX Designer] WCAG 2.1 AA Compliance Report
 
 **Scope:** [Design/Component/Application name]
 **Date:** [Date]

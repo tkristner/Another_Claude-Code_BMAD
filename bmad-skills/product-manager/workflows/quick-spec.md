@@ -1,4 +1,4 @@
-# Quick-Spec Workflow
+# [Product Manager] Quick-Spec Workflow
 
 **Goal:** Create implementation-ready technical specifications through conversational discovery, code investigation, and structured documentation.
 

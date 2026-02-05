@@ -1,4 +1,4 @@
-# Generate Project Context Workflow
+# [Orchestrator] Generate Project Context Workflow
 
 **Goal:** Analyze existing codebase and generate comprehensive context for AI agents, ensuring consistent code generation that follows established project patterns.
 
@@ -76,10 +76,10 @@
 
 **Scan commands:**
 ```bash
-# List root files to identify project type
+# [Orchestrator] List root files to identify project type
 ls -la
 
-# Check for multiple stacks (monorepo)
+# [Orchestrator] Check for multiple stacks (monorepo)
 find . -maxdepth 3 \( -name "package.json" -o -name "requirements.txt" -o -name "go.mod" -o -name "Cargo.toml" -o -name "pom.xml" \) 2>/dev/null
 ```
 
@@ -93,52 +93,52 @@ find . -maxdepth 3 \( -name "package.json" -o -name "requirements.txt" -o -name 
 
 **Node.js/TypeScript:**
 ```bash
-# Get Node version if specified
+# [Orchestrator] Get Node version if specified
 grep -E '"node"|"engines"' package.json 2>/dev/null || true
 cat .nvmrc 2>/dev/null || cat .node-version 2>/dev/null || true
 
-# Get framework
+# [Orchestrator] Get framework
 grep -E '"next"|"react"|"vue"|"express"|"fastify"|"nest"' package.json 2>/dev/null || true
 
-# Check for TypeScript
+# [Orchestrator] Check for TypeScript
 test -f tsconfig.json && echo "TypeScript project"
 ```
 
 **Python:**
 ```bash
-# Get Python version
+# [Orchestrator] Get Python version
 grep -E "python|requires-python" pyproject.toml 2>/dev/null || true
 cat .python-version 2>/dev/null || true
 
-# Get framework
+# [Orchestrator] Get framework
 grep -iE "django|flask|fastapi|tornado|starlette" requirements.txt pyproject.toml 2>/dev/null || true
 ```
 
 **Go:**
 ```bash
-# Get Go version
+# [Orchestrator] Get Go version
 head -5 go.mod 2>/dev/null || true
 
-# Get key dependencies
+# [Orchestrator] Get key dependencies
 grep -E "gin|echo|fiber|chi|gorilla" go.mod 2>/dev/null || true
 ```
 
 **Rust:**
 ```bash
-# Get Rust edition/version
+# [Orchestrator] Get Rust edition/version
 grep -E "edition|rust-version" Cargo.toml 2>/dev/null || true
 
-# Get framework
+# [Orchestrator] Get framework
 grep -E "actix|axum|rocket|warp|tokio" Cargo.toml 2>/dev/null || true
 ```
 
 **Java:**
 ```bash
-# Get Java version
+# [Orchestrator] Get Java version
 grep -E "<java.version>|<maven.compiler" pom.xml 2>/dev/null || true
 grep -E "sourceCompatibility|targetCompatibility" build.gradle* 2>/dev/null || true
 
-# Get framework
+# [Orchestrator] Get framework
 grep -E "spring|quarkus|micronaut" pom.xml build.gradle* 2>/dev/null || true
 ```
 
@@ -187,13 +187,13 @@ repositories/  -> Data access layer
 
 **Scan commands:**
 ```bash
-# List top-level structure
+# [Orchestrator] List top-level structure
 ls -la
 
-# Find source directories
+# [Orchestrator] Find source directories
 find . -maxdepth 2 -type d \( -name "src" -o -name "lib" -o -name "app" -o -name "pkg" -o -name "cmd" \) 2>/dev/null
 
-# Count files by type
+# [Orchestrator] Count files by type
 find . -type f -name "*.ts" 2>/dev/null | wc -l
 find . -type f -name "*.tsx" 2>/dev/null | wc -l
 find . -type f -name "*.js" 2>/dev/null | wc -l
@@ -214,14 +214,14 @@ find . -type f -name "*.java" 2>/dev/null | wc -l
 Many projects use multiple technologies (e.g., Python backend + TypeScript frontend, Go services + Python ML). Detect this pattern:
 
 ```bash
-# Count files by language to identify multi-stack
+# [Orchestrator] Count files by language to identify multi-stack
 echo "TypeScript/JavaScript: $(find . -type f \( -name "*.ts" -o -name "*.tsx" -o -name "*.js" -o -name "*.jsx" \) 2>/dev/null | wc -l)"
 echo "Python: $(find . -type f -name "*.py" 2>/dev/null | wc -l)"
 echo "Go: $(find . -type f -name "*.go" 2>/dev/null | wc -l)"
 echo "Rust: $(find . -type f -name "*.rs" 2>/dev/null | wc -l)"
 echo "Java: $(find . -type f -name "*.java" 2>/dev/null | wc -l)"
 
-# Check for multiple package managers
+# [Orchestrator] Check for multiple package managers
 ls package.json requirements.txt pyproject.toml go.mod Cargo.toml pom.xml 2>/dev/null
 ```
 
@@ -265,10 +265,10 @@ ls package.json requirements.txt pyproject.toml go.mod Cargo.toml pom.xml 2>/dev
 
 If multiple package files found at different depths, the project may be a monorepo:
 ```bash
-# Check for monorepo tooling
+# [Orchestrator] Check for monorepo tooling
 find . -name "lerna.json" -o -name "pnpm-workspace.yaml" -o -name "nx.json" -o -name "turbo.json" 2>/dev/null
 
-# Check for packages/apps directories
+# [Orchestrator] Check for packages/apps directories
 ls -d packages/ apps/ modules/ services/ 2>/dev/null
 ```
 
@@ -296,19 +296,19 @@ For monorepos, offer to generate context for each sub-project or focus on the pr
 
 **File naming:**
 ```bash
-# Sample filenames in src
+# [Orchestrator] Sample filenames in src
 ls src/ 2>/dev/null | head -20 || ls lib/ 2>/dev/null | head -20 || ls app/ 2>/dev/null | head -20
 ```
 
 **Indentation (for JS/TS/Python):**
 ```bash
-# Check .editorconfig if exists
+# [Orchestrator] Check .editorconfig if exists
 cat .editorconfig 2>/dev/null | grep -E "indent_size|indent_style" || true
 
-# Check prettier config
+# [Orchestrator] Check prettier config
 cat .prettierrc* 2>/dev/null | grep -E "tabWidth|useTabs" || true
 
-# Sample actual files
+# [Orchestrator] Sample actual files
 head -50 src/**/*.ts 2>/dev/null | head -50 || head -50 src/**/*.py 2>/dev/null | head -50
 ```
 
@@ -320,7 +320,7 @@ cat .eslintrc* 2>/dev/null | grep -E "quotes" || true
 
 **Import style:**
 ```bash
-# Sample imports from source files
+# [Orchestrator] Sample imports from source files
 grep -h "^import" src/**/*.ts 2>/dev/null | head -20 || true
 grep -h "^from" src/**/*.py 2>/dev/null | head -20 || true
 ```
@@ -345,16 +345,16 @@ grep -h "^from" src/**/*.py 2>/dev/null | head -20 || true
 
 **Detection commands:**
 ```bash
-# Check for test config files
+# [Orchestrator] Check for test config files
 ls jest.config.* vitest.config.* pytest.ini .rspec 2>/dev/null || true
 
-# Check package.json for test script and dependencies
+# [Orchestrator] Check package.json for test script and dependencies
 cat package.json 2>/dev/null | grep -E '"test"|jest|vitest|mocha|ava' || true
 
-# Check pyproject.toml for pytest
+# [Orchestrator] Check pyproject.toml for pytest
 cat pyproject.toml 2>/dev/null | grep -E "\[tool.pytest\]|pytest" || true
 
-# Find test files to determine pattern
+# [Orchestrator] Find test files to determine pattern
 find . -type f \( -name "*.test.*" -o -name "*.spec.*" -o -name "*_test.*" -o -name "test_*" \) 2>/dev/null | head -10
 ```
 
@@ -401,13 +401,13 @@ find . -type f \( -name "*.test.*" -o -name "*.spec.*" -o -name "*_test.*" -o -n
 
 **Detection commands:**
 ```bash
-# List config files
+# [Orchestrator] List config files
 ls .eslintrc* .prettierrc* tsconfig.json ruff.toml mypy.ini .golangci.yml rustfmt.toml 2>/dev/null || true
 
-# Check package.json scripts
+# [Orchestrator] Check package.json scripts
 cat package.json 2>/dev/null | grep -E '"lint"|"format"|"typecheck"' || true
 
-# Check pre-commit hooks
+# [Orchestrator] Check pre-commit hooks
 cat .pre-commit-config.yaml 2>/dev/null | head -30 || true
 cat .husky/pre-commit 2>/dev/null || true
 ```
@@ -424,31 +424,31 @@ cat .husky/pre-commit 2>/dev/null || true
 
 **Error Handling:**
 ```bash
-# Find error handling patterns
+# [Orchestrator] Find error handling patterns
 grep -rh "catch\|except\|Error\|panic\|unwrap" --include="*.ts" --include="*.py" --include="*.go" --include="*.rs" . 2>/dev/null | head -20
 ```
 
 **Logging:**
 ```bash
-# Find logging patterns
+# [Orchestrator] Find logging patterns
 grep -rh "console.log\|logger\|log\.\|logging\.\|slog\.\|tracing::" --include="*.ts" --include="*.py" --include="*.go" --include="*.rs" . 2>/dev/null | head -10
 ```
 
 **Authentication patterns:**
 ```bash
-# Find auth-related code
+# [Orchestrator] Find auth-related code
 grep -rl "auth\|jwt\|session\|token" --include="*.ts" --include="*.py" --include="*.go" . 2>/dev/null | head -5
 ```
 
 **Database access patterns:**
 ```bash
-# Find ORM/database patterns
+# [Orchestrator] Find ORM/database patterns
 grep -rh "prisma\|typeorm\|sequelize\|sqlalchemy\|gorm\|diesel" --include="*.ts" --include="*.py" --include="*.go" --include="*.rs" . 2>/dev/null | head -10
 ```
 
 **API patterns:**
 ```bash
-# Find API route definitions
+# [Orchestrator] Find API route definitions
 grep -rh "router\.\|app\.\|@Get\|@Post\|@app.route\|r\." --include="*.ts" --include="*.py" --include="*.go" --include="*.java" . 2>/dev/null | head -15
 ```
 
@@ -627,7 +627,7 @@ Following established patterns for implementation.
 
 Both workflows check for project context:
 ```bash
-# Quick-dev pre-flight
+# [Orchestrator] Quick-dev pre-flight
 test -f docs/project-context.md && cat docs/project-context.md
 ```
 

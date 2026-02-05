@@ -1,4 +1,4 @@
-# Research Workflow
+# [Creative Intelligence] Research Workflow
 
 **Purpose:** Conduct comprehensive research across market, competitive, technical, and user domains to provide actionable insights.
 
@@ -234,7 +234,7 @@ Use TodoWrite to track: Define Scope → Select Methods → Gather Data → Anal
 
 **Structure:**
 ```markdown
-# Research Report: {topic}
+# [Creative Intelligence] Research Report: {topic}
 
 **Date:** {date}
 **Type:** {research_type}

@@ -1,4 +1,4 @@
-# Architecture Documentation Workflow
+# [Tech Writer] Architecture Documentation Workflow
 
 **Goal:** Document system architecture and design decisions
 
@@ -50,7 +50,7 @@ High-level view of the system.
 
 **Format:**
 ```markdown
-# System Architecture
+# [Tech Writer] System Architecture
 
 ## Overview
 Brief description of the system.
@@ -92,7 +92,7 @@ Document significant decisions.
 
 **Format:**
 ```markdown
-# ADR-001: [Decision Title]
+# [Tech Writer] ADR-001: [Decision Title]
 
 ## Status
 Accepted | Superseded | Deprecated

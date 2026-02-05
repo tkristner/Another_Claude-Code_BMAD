@@ -1,4 +1,4 @@
-# Phase Transition Validation Workflow
+# [Orchestrator] Phase Transition Validation Workflow
 
 **Goal:** Validate alignment between workflow phases before proceeding to ensure quality and traceability.
 
@@ -284,7 +284,7 @@ Use before major phase transitions to catch issues early:
 Save to: `docs/validation-phase-{from}-{to}-{date}.md`
 
 ```markdown
-# Phase Transition Validation Report
+# [Orchestrator] Phase Transition Validation Report
 
 **Transition:** Phase {{from_phase}} → Phase {{to_phase}}
 **Date:** {{date}}
