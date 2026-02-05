@@ -156,7 +156,8 @@ votre-projet/
 │   │   ├── sprint.yaml
 │   │   └── stories/
 │   ├── context/                 # Contexte partagé (subagents)
-│   └── outputs/                 # Sorties des subagents
+│   ├── outputs/
+│   └── tmp/               # Temporary workflow state                 # Sorties des subagents
 └── .claude/
     └── commands/accbmad/        # Commandes projet
 ```

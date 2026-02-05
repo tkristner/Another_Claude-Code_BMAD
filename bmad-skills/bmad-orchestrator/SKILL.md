@@ -64,7 +64,8 @@ Initialize BMAD structure in the current project.
    ├── 4-implementation/
    │   └── stories/
    ├── context/           # Subagent shared context
-   └── outputs/           # Subagent outputs
+   ├── outputs/           # Subagent outputs
+   └── tmp/               # Temporary workflow state
 
    .claude/commands/accbmad/ (if not exists)
    ```

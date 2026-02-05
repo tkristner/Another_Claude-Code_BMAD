@@ -63,7 +63,8 @@ Each subagent has 200K tokens - leverage this for comprehensive analysis.
 │   ├── 4-implementation/       # Phase 4 outputs
 │   │   └── stories/
 │   ├── context/                # Subagent shared context
-│   └── outputs/                # Subagent outputs
+│   ├── outputs/
+│   └── tmp/               # Temporary workflow state                # Subagent outputs
 └── src/
     └── [your code]
 ```

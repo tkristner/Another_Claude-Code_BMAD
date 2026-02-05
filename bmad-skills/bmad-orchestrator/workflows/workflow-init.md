@@ -19,7 +19,8 @@ Set up BMAD Method structure and configuration in the current project.
    ├── 4-implementation/
    │   └── stories/
    ├── context/
-   └── outputs/
+   ├── outputs/
+│   └── tmp/               # Temporary workflow state
    ```
 4. Collect project info (name, type, level 0-4)
 5. Create configuration files

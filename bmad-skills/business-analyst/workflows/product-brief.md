@@ -33,7 +33,7 @@ This workflow uses step files for modular execution. Each step loads just-in-tim
 
 ## State Tracking
 
-Progress is tracked in: `accbmad/workflow-state.yaml`
+Progress is tracked in: `accbmad/tmp/workflow-state.yaml`
 
 ```yaml
 workflow: product-brief
@@ -57,7 +57,7 @@ data:
 ## Pre-Flight
 
 1. **Check for existing state file**
-   - If `accbmad/workflow-state.yaml` exists with `workflow: product-brief`
+   - If `accbmad/tmp/workflow-state.yaml` exists with `workflow: product-brief`
    - Offer to resume or restart
 
 2. **Load project configuration**
@@ -115,7 +115,7 @@ Would you like to:
 When starting fresh:
 
 ```yaml
-# [Business Analyst] accbmad/workflow-state.yaml
+# [Business Analyst] accbmad/tmp/workflow-state.yaml
 workflow: product-brief
 started: "2026-02-04T10:00:00Z"
 current_step: 1
@@ -139,8 +139,8 @@ data:
 ### Clearing State
 
 On workflow completion:
-- Archive to `accbmad/completed/product-brief-{{timestamp}}.yaml`
-- Or delete `accbmad/workflow-state.yaml`
+- Delete workflow state file
+- Or delete `accbmad/tmp/workflow-state.yaml`
 
 ---
 
@@ -153,7 +153,7 @@ On workflow completion:
 
 **State Dependencies:**
 - Creates: Product Brief document
-- Updates: `accbmad/workflow-state.yaml`, `accbmad/status.yaml`
+- Updates: `accbmad/tmp/workflow-state.yaml`, `accbmad/status.yaml`
 - Enables: PRD workflow
 
 ---

@@ -322,7 +322,8 @@ your-project/
 │   │       ├── STORY-001.md
 │   │       └── ...
 │   ├── context/                 # Subagent shared context
-│   └── outputs/                 # Subagent outputs
+│   ├── outputs/
+│   └── tmp/               # Temporary workflow state                 # Subagent outputs
 └── [your code]
 ```
 

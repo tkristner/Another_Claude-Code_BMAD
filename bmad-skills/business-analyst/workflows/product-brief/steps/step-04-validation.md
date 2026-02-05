@@ -49,7 +49,7 @@ If any section is incomplete, ask targeted questions to fill it.
 
 Generate brief using:
 - Template: `templates/product-brief.template.md`
-- State data: `accbmad/workflow-state.yaml`
+- State data: `accbmad/tmp/workflow-state.yaml`
 - Output: `accbmad/1-analysis/product-brief-{{project_name_slug}}.md`
 
 ### Approval Prompt

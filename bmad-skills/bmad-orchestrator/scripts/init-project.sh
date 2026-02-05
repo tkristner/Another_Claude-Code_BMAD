@@ -111,6 +111,7 @@ mkdir -p "${BMAD_FOLDER}/3-solutioning"
 mkdir -p "${BMAD_FOLDER}/4-implementation/stories"
 mkdir -p "${BMAD_FOLDER}/context"
 mkdir -p "${BMAD_FOLDER}/outputs"
+mkdir -p "${BMAD_FOLDER}/tmp"
 mkdir -p .claude/commands/accbmad
 
 echo -e "${GREEN}✓ Directories created${NC}"
