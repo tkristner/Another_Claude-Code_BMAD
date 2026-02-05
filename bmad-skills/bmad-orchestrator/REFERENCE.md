@@ -247,7 +247,7 @@ document_output_language: "English|Spanish|French|etc"
 bmad_version: "6.0.0"
 
 # Optional: Custom overrides
-agent_overrides_folder: "bmad/agent-overrides"
+agent_overrides_folder: "accbmad/agent-overrides"
 ```
 
 ### Global Config (~/.claude/config/accbmad/config.yaml)
@@ -333,7 +333,7 @@ New: status: "accbmad/2-planning/prd-myapp-2025-01-11.md"
 ```
 Tool: Bash
 Commands:
-  mkdir -p bmad/agent-overrides
+  mkdir -p accbmad/agent-overrides
   mkdir -p accbmad/4-implementation/stories
   mkdir -p .claude/commands/accbmad
 ```
@@ -403,7 +403,7 @@ Config: {project-root}/accbmad/config.yaml
 Status: {project-root}/{output_folder}/status.yaml
 Sprint: {project-root}/{output_folder}/sprint-status.yaml
 Stories: {project-root}/{output_folder}/stories/
-Templates: {project-root}/bmad/agent-overrides/ (optional)
+Templates: {project-root}/accbmad/agent-overrides/ (optional)
 ```
 
 ### Output File Naming
