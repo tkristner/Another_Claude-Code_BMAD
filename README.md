@@ -120,25 +120,14 @@ After restarting Claude Code:
 
 ## Quick Start
 
-### 1. Initialize BMAD in your project
+### New Project (Greenfield)
 
 ```
-/accbmad:workflow-init
+/accbmad:workflow-init              # Creates accbmad/ structure
+/accbmad:workflow-status            # See recommendations
 ```
 
-This creates:
-- `accbmad/config.yaml` - Project configuration
-- `accbmad/status.yaml` - Workflow tracking
-
-### 2. Check status and get recommendations
-
-```
-/accbmad:workflow-status
-```
-
-### 3. Follow the recommended workflow
-
-Based on your project level, BMAD recommends the appropriate next step.
+Then follow the recommended workflow based on project level:
 
 **Quick Flow** (Level 0-1, small changes):
 ```
@@ -149,6 +138,50 @@ Based on your project level, BMAD recommends the appropriate next step.
 ```
 /accbmad:product-brief  →  /accbmad:prd  →  /accbmad:architecture  →  /accbmad:sprint-planning  →  /accbmad:dev-sprint-auto
 ```
+
+### Existing Project (Brownfield)
+
+Most common use case: you already have a codebase and want to use BMAD for new features, refactoring, or structured development.
+
+**Step 1: Generate project context** (essential)
+```
+/accbmad:generate-project-context
+```
+
+This analyzes your codebase and generates `accbmad/3-solutioning/project-context.md` containing:
+- Technology stack and versions
+- Coding conventions (naming, style, imports)
+- Testing framework and patterns
+- Critical rules for AI agents (MUST follow / MUST NOT)
+
+Without this step, AI agents won't know your project's patterns and may generate inconsistent code.
+
+**Step 2: Initialize BMAD**
+```
+/accbmad:workflow-init
+```
+
+> `/workflow-init` auto-detects existing code and proposes to run `/generate-project-context` first if you haven't already.
+
+**Step 3: Choose your path based on what you need**
+
+| What you need | Flow |
+|---------------|------|
+| Bug fix or small tweak | `/quick-spec` → `/quick-dev` |
+| Add a feature | `/tech-spec` → `/dev-story` |
+| Multiple features | `/prd` → `/architecture` → `/dev-sprint-auto` |
+| Understand the codebase | `/generate-project-context` (already done) |
+
+**Complete brownfield example:**
+```
+/accbmad:generate-project-context   # Analyze existing code patterns
+/accbmad:workflow-init              # Initialize BMAD (Level 1)
+/accbmad:tech-spec                  # Define what to build
+/accbmad:create-story               # Create story with acceptance criteria
+/accbmad:dev-story STORY-001        # Implement (follows your conventions)
+```
+
+The key: `/generate-project-context` is the bridge between your existing code and BMAD. All implementation commands (`/dev-story`, `/quick-dev`, `/dev-sprint-auto`) automatically load the generated context to respect your established patterns.
 
 ---
 

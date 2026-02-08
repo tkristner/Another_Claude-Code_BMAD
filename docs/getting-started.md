@@ -36,8 +36,8 @@ cd Another_Claude-Code_BMAD
 
 **What it does:**
 - Installs 10 skills to `~/.claude/skills/accbmad/`
-- Installs 34 workflow commands to `~/.claude/commands/accbmad/`
-- Installs shared resources and hooks
+- Installs 37 workflow commands to `~/.claude/commands/accbmad/`
+- Installs shared resources and 5 lifecycle hooks
 
 ### Step 3: Restart Claude Code
 
@@ -53,7 +53,7 @@ If you see the workflow status, BMAD is installed correctly.
 
 ---
 
-## Initialize a Project
+## Initialize a New Project (Greenfield)
 
 Navigate to your project and initialize BMAD:
 
@@ -64,6 +64,54 @@ Navigate to your project and initialize BMAD:
 This creates:
 - `accbmad/config.yaml` - Project configuration
 - `accbmad/status.yaml` - Workflow tracking
+
+---
+
+## Use BMAD on an Existing Project (Brownfield)
+
+This is the most common use case: you already have a codebase and want to use BMAD for new features, bug fixes, or structured development.
+
+### Step 1: Generate project context (essential)
+
+```
+/accbmad:generate-project-context
+```
+
+This analyzes your codebase and generates `accbmad/3-solutioning/project-context.md` with:
+- Technology stack and versions detected from your code
+- Coding conventions (naming, style, imports)
+- Testing framework and patterns
+- Critical rules for AI agents (what to follow, what to avoid)
+
+**Why this matters:** Without this step, AI agents won't know your project's conventions and may generate code that doesn't match your existing patterns.
+
+### Step 2: Initialize BMAD
+
+```
+/accbmad:workflow-init
+```
+
+> `/workflow-init` auto-detects existing code. If you haven't run `/generate-project-context` yet, it will propose to do it first.
+
+### Step 3: Choose your workflow
+
+| What you need | Commands |
+|---------------|----------|
+| Bug fix or small tweak | `/accbmad:quick-spec` → `/accbmad:quick-dev` |
+| Add a single feature | `/accbmad:tech-spec` → `/accbmad:dev-story` |
+| Add multiple features | `/accbmad:prd` → `/accbmad:architecture` → `/accbmad:dev-sprint-auto` |
+
+### Example: Adding a feature to an existing project
+
+```
+/accbmad:generate-project-context   # Analyze existing code patterns
+/accbmad:workflow-init              # Initialize BMAD (select project level)
+/accbmad:tech-spec                  # Define the feature
+/accbmad:create-story               # Create story with acceptance criteria
+/accbmad:dev-story STORY-001        # Implement (AI follows your conventions)
+```
+
+All implementation commands (`/dev-story`, `/quick-dev`, `/dev-sprint-auto`) automatically load the generated project context to respect your established patterns.
 
 ---
 
@@ -146,7 +194,7 @@ your-project/
 ## Next Steps
 
 - [Skills Reference](./skills/) - All 10 BMAD skills
-- [Commands Reference](./commands/) - All 34 commands
+- [Commands Reference](./commands/) - All 37 commands
 - [Configuration](./configuration) - Customize BMAD
 - [Troubleshooting](./troubleshooting) - Common issues
 
