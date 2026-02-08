@@ -2,9 +2,9 @@
 
 > **An optimized fork of aj-geddes's BMAD implementation for Claude Code**
 >
-> Experimental enhancements to the BMAD Method skills, focusing on autonomous workflows, enforced code reviews, and improved developer experience.
+> Experimental enhancements to the BMAD Method skills, with autonomous workflows, Agent Teams integration, enforced code reviews, and improved developer experience.
 
-[![Version](https://img.shields.io/badge/version-1.3.0-blue.svg)](https://github.com/tkristner/Another_Claude-Code_BMAD/releases)
+[![Version](https://img.shields.io/badge/version-1.6.0-blue.svg)](https://github.com/tkristner/Another_Claude-Code_BMAD/releases)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20macOS%20%7C%20WSL-lightgrey.svg)](#installation)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-Native-orange.svg)](https://claude.ai/code)
@@ -47,16 +47,19 @@ This fork is an **experimental optimization** of the BMAD Skills for Claude Code
 
 | Feature | Description |
 |---------|-------------|
-| **Autonomous Sprint Execution** | `/dev-sprint-auto` processes all pending stories automatically |
-| **Script-Driven Story Queue** | `story-queue.sh` manages story progression reliably |
+| **Agent Teams** | Smart upgrade pattern — existing commands auto-detect when multi-agent collaboration adds value |
+| **Autonomous Sprint Execution** | `/dev-sprint-auto` processes all pending stories (sequential or parallel with teams) |
+| **Adversarial Research** | 4 researcher agents with challenge/rebuttal rounds |
+| **Multi-Lens Code Review** | 3 specialist reviewers (security, performance, testing) with debate phase |
 | **Mandatory Code Review** | Enforced adversarial review with `--auto-fix` mode |
 | **Double Review Pattern** | Verification review after commit catches context issues |
+| **Lifecycle Hooks** | 5 hooks for session, tool use, teammate idle, and task completion |
 | **Uninstall Script** | Clean removal with `uninstall-bmad-skills.sh` |
 
 ### Core BMAD Features (from original)
 
 - **10 Specialized Skills** - AI agents for different roles (Analyst, PM, Architect, Developer, etc.)
-- **34 Workflow Commands** - Slash commands for every development phase
+- **37 Workflow Commands** - Slash commands for every development phase
 - **4 Development Phases** - Analysis → Planning → Solutioning → Implementation
 - **Quick Flow** - Fast-track workflows (`/quick-spec`, `/quick-dev`)
 - **Adversarial Reviews** - Code review that finds 3-10 issues minimum
@@ -64,10 +67,11 @@ This fork is an **experimental optimization** of the BMAD Skills for Claude Code
 ### Why This Fork?
 
 This fork experiments with:
-1. **Reducing manual intervention** - Autonomous story loops instead of one-at-a-time
-2. **Enforcing quality gates** - Mandatory skill invocation for code reviews
-3. **Improving reliability** - Script-driven state management over instruction-following
-4. **Better developer experience** - Install/uninstall scripts, clearer documentation
+1. **Multi-agent collaboration** - Agent Teams with inter-agent messaging, plan approval, and shared task lists
+2. **Reducing manual intervention** - Autonomous story loops instead of one-at-a-time
+3. **Enforcing quality gates** - Mandatory skill invocation for code reviews
+4. **Improving reliability** - Script-driven state management over instruction-following
+5. **Better developer experience** - Install/uninstall scripts, lifecycle hooks
 
 ---
 
@@ -134,7 +138,17 @@ This creates:
 
 ### 3. Follow the recommended workflow
 
-Based on your project level, BMAD will recommend the appropriate next step.
+Based on your project level, BMAD recommends the appropriate next step.
+
+**Quick Flow** (Level 0-1, small changes):
+```
+/accbmad:quick-spec  →  /accbmad:quick-dev  →  Done!
+```
+
+**Standard Flow** (Level 2+):
+```
+/accbmad:product-brief  →  /accbmad:prd  →  /accbmad:architecture  →  /accbmad:sprint-planning  →  /accbmad:dev-sprint-auto
+```
 
 ---
 
@@ -155,7 +169,7 @@ BMAD right-sizes your planning based on project complexity:
 ## The Four Phases
 
 ### Phase 1: Analysis
-**Skill:** Business Analyst
+**Skills:** Business Analyst, Creative Intelligence
 **Commands:** `/accbmad:product-brief`, `/accbmad:brainstorm`, `/accbmad:research`
 
 Discover requirements, research markets, and define the problem space.
@@ -174,7 +188,7 @@ Design system architecture and validate against requirements.
 
 ### Phase 4: Implementation
 **Skills:** Scrum Master, Developer
-**Commands:** `/accbmad:sprint-planning`, `/accbmad:create-story`, `/accbmad:dev-story`
+**Commands:** `/accbmad:sprint-planning`, `/accbmad:dev-story`, `/accbmad:dev-sprint-auto`
 
 Plan sprints, create stories, and implement features.
 
@@ -184,20 +198,20 @@ Plan sprints, create stories, and implement features.
 
 | Skill | Phase | Purpose |
 |-------|-------|---------|
-| **bmad-orchestrator** | All | Workflow management and routing |
+| **bmad-orchestrator** | All | Workflow management, routing, Agent Teams coordination |
 | **business-analyst** | 1 | Requirements discovery |
 | **product-manager** | 2 | PRD and planning |
 | **ux-designer** | 2-3 | Interface design |
 | **system-architect** | 3 | Technical architecture |
 | **scrum-master** | 4 | Sprint planning |
-| **developer** | 4 | Implementation |
+| **developer** | 4 | Implementation and code review |
 | **tech-writer** | Any | Documentation (README, API docs, guides) |
 | **builder** | N/A | Custom agents/workflows |
 | **creative-intelligence** | Any | Brainstorming/research |
 
 ---
 
-## Commands Reference (34 commands)
+## Commands Reference (37 commands)
 
 ### Core Workflow
 - `/accbmad:workflow-init` - Initialize BMAD in project
@@ -208,7 +222,7 @@ Plan sprints, create stories, and implement features.
 ### Analysis (Phase 1)
 - `/accbmad:product-brief` - Create product brief
 - `/accbmad:brainstorm` - Structured brainstorming session
-- `/accbmad:research` - Comprehensive research
+- `/accbmad:research` - Comprehensive research (auto-upgrades to team mode)
 
 ### Planning (Phase 2)
 - `/accbmad:prd` - Create Product Requirements Document
@@ -229,12 +243,17 @@ Plan sprints, create stories, and implement features.
 - `/accbmad:create-story` - Create user story
 - `/accbmad:create-epics-stories` - Create epics and stories
 - `/accbmad:dev-story` - Implement a story
-- `/accbmad:dev-sprint-auto` - **Autonomous sprint execution** (implements all pending stories)
+- `/accbmad:dev-sprint-auto` - **Autonomous sprint execution** (auto-upgrades to team mode)
 - `/accbmad:quick-dev` - Quick implementation for small changes
 - `/accbmad:expedited-fix` - Quick fix for urgent bugs
-- `/accbmad:code-review` - Adversarial code review
+- `/accbmad:code-review` - Adversarial code review (auto-upgrades to team mode)
 - `/accbmad:qa-automate` - Generate tests
 - `/accbmad:retrospective` - Sprint retrospective
+
+### Agent Teams (shortcuts)
+- `/accbmad:team-research` - Force team mode for `/research`
+- `/accbmad:team-implement` - Force team mode for `/dev-sprint-auto`
+- `/accbmad:team-review` - Force team mode for `/code-review`
 
 ### Documentation (Tech Writer)
 - `/accbmad:readme` - Generate README file
@@ -249,57 +268,219 @@ Plan sprints, create stories, and implement features.
 
 ---
 
-## Autonomous Development Mode
+## Workflow Guide
 
-Another Claude-Code BMAD v1.3.0 introduces **autonomous sprint execution** with `/accbmad:dev-sprint-auto`.
-
-### What It Does
-
-Automatically processes **all pending stories** in your sprint:
+### How to Choose a Workflow
 
 ```
-/accbmad:dev-sprint-auto
-    ↓
-┌─────────────────────────────────────────────┐
-│  For each pending story:                    │
-│  1. Create git branch (story/{id})          │
-│  2. Implement all acceptance criteria       │
-│  3. Run adversarial code review (auto-fix)  │
-│  4. Commit changes                          │
-│  5. Run verification review (post-commit)   │
-│  6. Merge to develop                        │
-│  7. Update sprint-status.yaml               │
-│  8. Continue to next story                  │
-└─────────────────────────────────────────────┘
-    ↓
-Sprint complete!
+What do you need?
+|
++-- Bug fix or tiny change (< 1 day)
+|     --> /quick-spec + /quick-dev             (Level 0)
+|
++-- Small feature (1-3 features, clear scope)
+|     --> /tech-spec + /dev-story              (Level 1)
+|
++-- Feature set (4+ features, multiple users)
+|     --> /prd + /architecture + /sprint-planning + /dev-sprint-auto   (Level 2-4)
+|
++-- Urgent hotfix
+|     --> /expedited-fix or /quick-dev         (any level)
+|
++-- Existing project (brownfield)
+|     --> /generate-project-context first, then choose path above
+|
++-- Not sure?
+      --> /workflow-status (shows current phase + next recommendation)
 ```
 
-### Key Features
+### Complete Flow Paths
 
-| Feature | Description |
-|---------|-------------|
-| **Script-Driven Loop** | Uses `story-queue.sh` to manage story queue |
-| **Mandatory Code Review** | Auto-fix mode - no user prompts |
-| **Double Review** | Verification review after commit catches context issues |
-| **Git Workflow** | Branch per story, merge to develop |
-| **HALT Conditions** | Stops on conflicts or repeated failures |
+#### Path 1: Quick Flow (Level 0-1)
+
+For bug fixes, small tweaks, and single features:
+
+```
+/quick-spec ──> /quick-dev ──> Done!
+   15-30 min     Built-in review
+```
+
+#### Path 2: Feature Addition (Level 1-2)
+
+For adding a well-defined feature to an existing project:
+
+```
+/tech-spec ──> /create-story ──> /dev-story ──> /code-review
+                                   |               (optional)
+                              Full TDD cycle
+```
+
+#### Path 3: Standard Product (Level 2-3)
+
+For new feature sets or medium-complexity projects:
+
+```
+Phase 1          Phase 2          Phase 3          Phase 4
+/product-brief   /prd             /architecture    /sprint-planning
+     |           /validate-prd    /check-impl-     /create-epics-stories
+     v                |           readiness        /dev-sprint-auto
+(optional)           v                |            /retrospective
+                  Required            v
+                                   Required
+```
+
+#### Path 4: Enterprise (Level 3-4)
+
+For complex integrations or large-scale projects — all phases mandatory:
+
+```
+Phase 1                Phase 2                Phase 3                Phase 4
+/product-brief         /prd                   /architecture          /sprint-planning
+/brainstorm            /create-ux-design      /solutioning-gate      /create-epics-stories
+/research              /validate-prd          /check-impl-readiness  /dev-sprint-auto (team)
+                       /wcag-validate                                /code-review (team)
+                                                                     /retrospective
+```
+
+### Requirements Workflows Comparison
+
+| Aspect | `/quick-spec` | `/tech-spec` | `/prd` |
+|--------|---------------|--------------|--------|
+| **Scope** | Single change | Technical feature | Full product |
+| **Duration** | 15-30 min | 30-60 min | 1-2 hours |
+| **Best for** | Bug fixes, tweaks | API design, algorithms | New products, feature sets |
+| **Level** | 0-1 | 1-2 | 2-4 |
+
+### Implementation Workflows Comparison
+
+| Aspect | `/quick-dev` | `/dev-story` | `/dev-sprint-auto` |
+|--------|-------------|-------------|---------------------|
+| **Input** | Problem description | Story file | Sprint with stories |
+| **Scope** | Single fix | One story (TDD) | All pending stories |
+| **Review** | Built-in | Built-in (Step 8) | Mandatory + auto-fix |
+| **Tracking** | None | Updates sprint status | Full sprint tracking |
+| **Team mode** | No | No | Yes (wave-based parallel) |
+
+### Validation Workflows
+
+| When | Command | What it checks |
+|------|---------|---------------|
+| After writing PRD | `/validate-prd` | Completeness, testability, clarity |
+| Quick Phase 3 check | `/solutioning-gate-check` | Architecture exists, basic readiness |
+| Before Sprint 1 | `/check-implementation-readiness` | PRD, Architecture, FR coverage, dependencies, estimates |
+| Between any phases | `/validate-phase-transition` | Alignment between phase outputs |
+
+### Anti-Patterns
+
+| Avoid | Why | Do Instead |
+|-------|-----|------------|
+| Skipping `/prd` for Level 2+ | Missing requirements later | Plan properly upfront |
+| Using `/dev-story` without story file | No tracking, unclear scope | Use `/quick-dev` or create story first |
+| Multiple `/quick-dev` for multi-change work | Technical debt | Use stories and sprints |
+| Skipping validation gates | Quality issues downstream | Always validate before next phase |
+
+---
+
+## Agent Teams
+
+**v1.6.0** integrates Claude Code's Agent Teams feature directly into existing commands using a **smart upgrade pattern** - each command auto-detects when multi-agent collaboration adds value and offers the upgrade transparently.
+
+```
+User runs /accbmad:dev-sprint-auto
+    |
+    v
+Command checks: Teams available? Multiple independent stories?
+    |
+    +-- Teams NOT available --> sequential mode (transparent fallback)
+    +-- Scope too small -----> sequential mode (transparent fallback)
+    +-- Teams + scope OK ----> PROPOSES team mode
+         |
+         "I can run this as a team workflow:
+          - N agents working in parallel
+          [T] Team (recommended) / [S] Standard"
+```
+
+### Team-Capable Commands
+
+| Command | Team Mode Enhancement | When Team Activates |
+|---------|----------------------|---------------------|
+| `/dev-sprint-auto` | N parallel devs + reviewer + plan approval (wave-based) | 2+ independent stories |
+| `/research` | 4 adversarial researchers (Research > Challenge > Rebuttal) | Level 2+ or complex topic |
+| `/code-review` | 3 specialists (security/perf/testing) + severity debate | Level 2+ or full codebase |
+| `/architecture` | Research + parallel component design + cross-review | Level 3+ or 4+ components |
+| `/create-epics-stories` | Parallel writers + live FR coverage validator | Level 3+ or 4+ epics |
+| `/validate-prd` | 3 parallel validators + synthesized report | Level 2+ |
+| `/check-implementation-readiness` | 5 parallel checkers | Level 2+ |
+
+All team-capable commands gracefully degrade to subagent patterns when Agent Teams are unavailable. See [BMAD-AGENT-TEAMS.md](bmad-skills/BMAD-AGENT-TEAMS.md) for the complete guide.
+
+---
+
+## Autonomous Sprint Execution
+
+`/accbmad:dev-sprint-auto` implements an entire sprint with two execution modes:
+
+### Sequential Mode (Classic)
+
+```
+For each pending story:
+  1. Create git branch (story/{id})
+  2. Implement all acceptance criteria (TDD)
+  3. Run adversarial code review (auto-fix)
+  4. Commit changes
+  5. Run verification review (post-commit)
+  6. Merge to develop
+  7. Update sprint-status.yaml
+  8. Continue to next story
+```
+
+### Team Mode (Parallel)
+
+```
+Wave 1: Independent stories run in parallel
+  dev-agent-1 --+
+  dev-agent-2 --+--> reviewer validates each
+  dev-agent-3 --+
+       |
+  merge all to develop
+       |
+Wave 2: Stories that depended on Wave 1
+  dev-agent-1 --+
+  dev-agent-2 --+--> reviewer validates each
+       |
+  merge all to develop
+```
 
 ### Usage
 
 ```bash
-# Process all pending stories
+# Auto-detect best mode
 /accbmad:dev-sprint-auto
+
+# Force team mode
+/accbmad:dev-sprint-auto --team
+
+# Force sequential mode
+/accbmad:dev-sprint-auto --sequential
 
 # Limit to specific number
 /accbmad:dev-sprint-auto --max 3
 
-# Single story only
-/accbmad:dev-sprint-auto --story VS-002-S11
-
 # Preview only (dry run)
 /accbmad:dev-sprint-auto --dry-run
 ```
+
+---
+
+## Lifecycle Hooks
+
+| Hook | Trigger | Purpose |
+|------|---------|---------|
+| `bmad-session-start.sh` | SessionStart | Initialize environment |
+| `bmad-pre-tool.sh` | PreToolUse | Validate tool usage |
+| `bmad-post-tool.sh` | PostToolUse | Track workflow progress |
+| `bmad-teammate-idle.sh` | TeammateIdle | Check for unclaimed tasks |
+| `bmad-task-completed.sh` | TaskCompleted | Validate output quality + run tests |
 
 ---
 
@@ -310,26 +491,39 @@ After installation, files are located at:
 ```
 ~/.claude/
 ├── skills/
-│   └── accbmad/
-│       ├── bmad-orchestrator/
-│       ├── business-analyst/
-│       ├── product-manager/
-│       ├── system-architect/
-│       ├── scrum-master/
-│       ├── developer/
-│       ├── ux-designer/
-│       ├── tech-writer/
-│       ├── creative-intelligence/
-│       ├── builder/
-│       ├── shared/
-│       └── examples/
+|   └── accbmad/
+|       ├── bmad-orchestrator/
+|       ├── business-analyst/
+|       ├── product-manager/
+|       ├── system-architect/
+|       ├── scrum-master/
+|       ├── developer/
+|       ├── ux-designer/
+|       ├── tech-writer/
+|       ├── creative-intelligence/
+|       ├── builder/
+|       ├── shared/
+|       └── hooks/
 ├── commands/
-│   └── accbmad/
-│       ├── workflow-init.md
-│       ├── workflow-status.md
-│       ├── dev-sprint-auto.md
-│       └── ... (34 workflow commands)
+|   └── accbmad/         (37 workflow commands)
 └── hooks/
+```
+
+When BMAD is initialized in a project:
+
+```
+your-project/
+└── accbmad/
+    ├── config.yaml              # Project configuration
+    ├── status.yaml              # Workflow progress tracking
+    ├── 1-analysis/              # Phase 1 outputs
+    ├── 2-planning/              # Phase 2 outputs
+    ├── 3-solutioning/           # Phase 3 outputs
+    ├── 4-implementation/        # Phase 4 outputs
+    |   └── stories/
+    ├── context/                 # Subagent shared context
+    ├── outputs/                 # Subagent outputs
+    └── tmp/                     # Temporary workflow state
 ```
 
 ---
