@@ -87,6 +87,20 @@ Initialize BMAD structure in the current project.
 
 6. Offer to start recommended workflow
 
+**Legacy Migration:**
+
+During initialization, `/workflow-init` automatically detects artifacts from previous BMAD versions stored in `docs/`, `bmad/`, or `.bmad/` directories. When legacy artifacts are found:
+
+- User is shown a grouped inventory of detected files by phase
+- User chooses: migrate all, select specific files, or skip (start fresh)
+- Files are **copied, never moved** — originals remain untouched
+- Existing files in `accbmad/` are **never overwritten** (idempotent)
+- Migrated artifacts automatically update `accbmad/status.yaml` with completed status
+- Legacy status files (e.g., `bmad/workflow-status.yaml`) are flagged for Claude to read, interpret, and map into the new status format
+- `DEVELOPMENT-GUARDRAILS.md` is **not migrated** — it is now part of the BMAD package and installed globally to `~/.claude/DEVELOPMENT-GUARDRAILS.md` by `install-bmad-skills.sh`
+
+Detection and migration are handled by [migrate-legacy.sh](scripts/migrate-legacy.sh). See Helper Scripts section below.
+
 **Example interaction:**
 ```
 User: /workflow-init
@@ -291,6 +305,15 @@ Execute via Bash tool:
 - **validate-config.sh** - Validate YAML configuration
   ```bash
   bash scripts/validate-config.sh accbmad/config.yaml
+  ```
+
+- **migrate-legacy.sh** - Detect and migrate artifacts from legacy BMAD directories
+  ```bash
+  # Detect legacy artifacts in docs/, bmad/, .bmad/
+  bash scripts/migrate-legacy.sh --detect
+
+  # Execute migration from manifest file
+  bash scripts/migrate-legacy.sh --execute --manifest accbmad/tmp/migration-manifest.txt
   ```
 
 See script help (`--help`) for detailed usage.

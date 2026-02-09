@@ -340,6 +340,54 @@ verify_installation() {
 }
 
 ###############################################################################
+# Global Guardrails
+###############################################################################
+
+install_guardrails() {
+    log_info "Installing development guardrails..."
+
+    local guardrails_src="${SOURCE_DIR}/shared/resources/DEVELOPMENT-GUARDRAILS.md"
+    local guardrails_dest="${CLAUDE_DIR}/DEVELOPMENT-GUARDRAILS.md"
+    local claude_md="${CLAUDE_DIR}/CLAUDE.md"
+
+    if [ ! -f "${guardrails_src}" ]; then
+        log_warning "DEVELOPMENT-GUARDRAILS.md not found in shared resources — skipping"
+        return 0
+    fi
+
+    # Copy guardrails file to ~/.claude/
+    cp "${guardrails_src}" "${guardrails_dest}"
+    log_success "DEVELOPMENT-GUARDRAILS.md installed to ${guardrails_dest}"
+
+    # Add reference in ~/.claude/CLAUDE.md if not already present
+    local guardrails_marker="DEVELOPMENT-GUARDRAILS.md"
+    if [ -f "${claude_md}" ]; then
+        if grep -q "${guardrails_marker}" "${claude_md}" 2>/dev/null; then
+            log_info "CLAUDE.md already references guardrails — skipping"
+        else
+            # Append guardrails reference
+            cat >> "${claude_md}" << 'GUARDRAILS_EOF'
+
+## CRITICAL: Development Guardrails
+**BEFORE writing ANY code, Claude MUST read:**
+- `~/.claude/DEVELOPMENT-GUARDRAILS.md`
+GUARDRAILS_EOF
+            log_success "Guardrails reference added to ${claude_md}"
+        fi
+    else
+        # Create CLAUDE.md with guardrails reference
+        cat > "${claude_md}" << 'GUARDRAILS_EOF'
+# CLAUDE.md — Global Configuration
+
+## CRITICAL: Development Guardrails
+**BEFORE writing ANY code, Claude MUST read:**
+- `~/.claude/DEVELOPMENT-GUARDRAILS.md`
+GUARDRAILS_EOF
+        log_success "CLAUDE.md created with guardrails reference at ${claude_md}"
+    fi
+}
+
+###############################################################################
 # Post-installation
 ###############################################################################
 
@@ -350,8 +398,9 @@ print_success() {
 📦 BMAD Skills v${BMAD_VERSION} installed successfully!
 
 Installation locations:
-  Skills:   ${SKILLS_DIR}/
-  Commands: ${COMMANDS_DIR}/
+  Skills:     ${SKILLS_DIR}/
+  Commands:   ${COMMANDS_DIR}/
+  Guardrails: ${CLAUDE_DIR}/DEVELOPMENT-GUARDRAILS.md
 
 ✓ 10 Enhanced Skills
   - bmad-orchestrator (workflow management)
@@ -428,6 +477,7 @@ main() {
     install_shared_resources
     install_commands
     install_documentation
+    install_guardrails
 
     # Verification
     if verify_installation; then
