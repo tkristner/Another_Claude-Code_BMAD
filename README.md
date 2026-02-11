@@ -82,13 +82,14 @@ This fork experiments with:
 - Bash shell (Linux, macOS, or WSL on Windows)
 - Enable Agent Teams via the CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS environment variable, and set teammateMode to tmux, which uses tmux to manage multiple terminal panes for independent agent sessions.
 .claude/settings.json :
+```
 {
   "env": {
     "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
   },
   "teammateMode": "tmux"
 }
-
+```
 
  
 
